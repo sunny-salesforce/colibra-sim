@@ -1,0 +1,28 @@
+{
+  "currentPageUrl": "/services/data/v65.0/ssot/data-spaces?batchSize=50&offset=0",
+  "dataSpaces": [
+    {
+      "id": "0vhKh000000L0A3IAK",
+      "label": "B2B",
+      "name": "B2B",
+      "prefix": "b2b",
+      "status": "Active"
+    },
+    {
+      "description": "Direct-to-consumer data space for Haworth residential/e-commerce",
+      "id": "0vhKh000000L0A8IAK",
+      "label": "D2C",
+      "name": "D2C",
+      "prefix": "d2c",
+      "status": "Active"
+    },
+    {
+      "description": "Your org’s default data space. It can be renamed, but not deleted.",
+      "id": "0vhKh000000L09yIAC",
+      "label": "default",
+      "name": "default",
+      "status": "Active"
+    }
+  ],
+  "totalSize": 3
+}

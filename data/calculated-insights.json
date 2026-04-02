@@ -1,0 +1,274 @@
+{
+  "collection": {
+    "count": 3,
+    "currentPageToken": "eyJvZiI6MCwiYnMiOjI1fQ==",
+    "currentPageUrl": "/services/data/v65.0/ssot/calculated-insights?batchSize=25&offset=0&pageToken=eyJvZiI6MCwiYnMiOjI1fQ%3D%3D",
+    "items": [
+      {
+        "apiName": "b2b_contact_engagement__cio",
+        "calculatedInsightStatus": "ACTIVE",
+        "creationType": "Custom",
+        "dataSpace": "default",
+        "definitionStatus": "IN_USE",
+        "definitionType": "CALCULATED_METRIC",
+        "description": "Engagement count and trade show attendance per B2B contact",
+        "dimensions": [
+          {
+            "apiName": "contact_id__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "EngagementDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Text",
+            "dateGranularity": null,
+            "displayName": "contact_id",
+            "fieldRole": "DIMENSION",
+            "formula": "HaworthEngagement__dlm.ContactId__c"
+          }
+        ],
+        "displayName": "B2B Contact Engagement Score",
+        "expression": "SELECT HaworthEngagement__dlm.ContactId__c AS contact_id__c, COUNT(HaworthEngagement__dlm.EngagementId__c) AS total_engagements__c, SUM(CASE WHEN HaworthEngagement__dlm.EngagementType__c = &#39;Trade Show Visit&#39; THEN 1 ELSE 0 END) AS trade_show_count__c, MAX(HaworthEngagement__dlm.EngagementDate__c) AS last_engagement_date__c FROM HaworthEngagement__dlm GROUP BY HaworthEngagement__dlm.ContactId__c",
+        "isEnabled": true,
+        "lastCalcInsightStatusDateTime": "2026-04-02T15:11:34.000Z",
+        "lastCalcInsightStatusErrorCode": null,
+        "lastRunDateTime": "2026-04-02T15:13:19.000Z",
+        "lastRunStatus": "SUCCESS",
+        "lastRunStatusDateTime": "2026-04-02T15:15:04.000Z",
+        "lastRunStatusErrorCode": null,
+        "measures": [
+          {
+            "apiName": "total_engagements__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "EngagementDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Number",
+            "displayName": "total_engagements",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "COUNT(HaworthEngagement__dlm.EngagementId__c)"
+          },
+          {
+            "apiName": "trade_show_count__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "EngagementDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Number",
+            "displayName": "trade_show_count",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "SUM(CASE WHEN HaworthEngagement__dlm.EngagementType__c = &#39;Trade Show Visit&#39; THEN 1 ELSE 0 END)"
+          },
+          {
+            "apiName": "last_engagement_date__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "EngagementDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "DateTime",
+            "displayName": "last_engagement_date",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "MAX(HaworthEngagement__dlm.EngagementDate__c)"
+          }
+        ],
+        "publishScheduleEndDate": null,
+        "publishScheduleInterval": "TWELVE",
+        "publishScheduleStartDateTime": "2026-04-02T08:00",
+        "subType": null
+      },
+      {
+        "apiName": "b2b_account_revenue__cio",
+        "calculatedInsightStatus": "ACTIVE",
+        "creationType": "Custom",
+        "dataSpace": "default",
+        "definitionStatus": "IN_USE",
+        "definitionType": "CALCULATED_METRIC",
+        "description": "Total revenue, order count, and last order date per B2B account",
+        "dimensions": [
+          {
+            "apiName": "account_id__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "OrderDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Text",
+            "dateGranularity": null,
+            "displayName": "account_id",
+            "fieldRole": "DIMENSION",
+            "formula": "ssot__Account__dlm.ssot__Id__c"
+          }
+        ],
+        "displayName": "B2B Account Revenue Metrics",
+        "expression": "SELECT ssot__Account__dlm.ssot__Id__c AS account_id__c, COUNT(HaworthPurchaseOrder__dlm.OrderId__c) AS total_orders__c, SUM(HaworthPurchaseOrder__dlm.TotalAmount__c) AS total_revenue__c, MAX(HaworthPurchaseOrder__dlm.OrderDate__c) AS last_order_date__c, AVG(HaworthPurchaseOrder__dlm.TotalAmount__c) AS avg_order_value__c FROM ssot__Account__dlm LEFT JOIN HaworthPurchaseOrder__dlm ON (ssot__Account__dlm.ssot__Id__c = HaworthPurchaseOrder__dlm.AccountId__c) GROUP BY ssot__Account__dlm.ssot__Id__c",
+        "isEnabled": true,
+        "lastCalcInsightStatusDateTime": "2026-04-02T15:04:57.000Z",
+        "lastCalcInsightStatusErrorCode": null,
+        "lastRunDateTime": "2026-04-02T15:13:33.000Z",
+        "lastRunStatus": "SUCCESS",
+        "lastRunStatusDateTime": "2026-04-02T15:15:04.000Z",
+        "lastRunStatusErrorCode": null,
+        "measures": [
+          {
+            "apiName": "total_orders__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "OrderDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Number",
+            "displayName": "total_orders",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "COUNT(HaworthPurchaseOrder__dlm.OrderId__c)"
+          },
+          {
+            "apiName": "avg_order_value__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "OrderDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Number",
+            "displayName": "avg_order_value",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "AVG(HaworthPurchaseOrder__dlm.TotalAmount__c)"
+          },
+          {
+            "apiName": "last_order_date__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "OrderDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "DateTime",
+            "displayName": "last_order_date",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "MAX(HaworthPurchaseOrder__dlm.OrderDate__c)"
+          },
+          {
+            "apiName": "total_revenue__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "OrderDate__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Number",
+            "displayName": "total_revenue",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "SUM(HaworthPurchaseOrder__dlm.TotalAmount__c)"
+          }
+        ],
+        "publishScheduleEndDate": null,
+        "publishScheduleInterval": "TWELVE",
+        "publishScheduleStartDateTime": "2026-04-02T08:00",
+        "subType": null
+      },
+      {
+        "apiName": "d2c_customer_ltv__cio",
+        "calculatedInsightStatus": "ACTIVE",
+        "creationType": "Custom",
+        "dataSpace": "default",
+        "definitionStatus": "IN_USE",
+        "definitionType": "CALCULATED_METRIC",
+        "description": "Total spend, order count, and last order date per D2C customer",
+        "dimensions": [
+          {
+            "apiName": "individual_id__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "CustomerId__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Text",
+            "dateGranularity": null,
+            "displayName": "individual_id",
+            "fieldRole": "DIMENSION",
+            "formula": "ssot__Individual__dlm.ssot__Id__c"
+          }
+        ],
+        "displayName": "D2C Customer Lifetime Value",
+        "expression": "SELECT ssot__Individual__dlm.ssot__Id__c AS individual_id__c, COUNT(HaworthD2COrder__dlm.OrderId__c) AS total_orders__c, SUM(HaworthD2COrder__dlm.TotalAmount__c) AS total_spend__c, MAX(HaworthD2COrder__dlm.OrderDate__c) AS last_order_date__c, AVG(HaworthD2COrder__dlm.TotalAmount__c) AS avg_order_value__c FROM ssot__Individual__dlm LEFT JOIN HaworthD2COrder__dlm ON (ssot__Individual__dlm.ssot__Id__c = HaworthD2COrder__dlm.CustomerId__c) GROUP BY ssot__Individual__dlm.ssot__Id__c",
+        "isEnabled": true,
+        "lastCalcInsightStatusDateTime": "2026-04-02T15:05:09.000Z",
+        "lastCalcInsightStatusErrorCode": null,
+        "lastRunDateTime": "2026-04-02T15:13:47.000Z",
+        "lastRunStatus": "SUCCESS",
+        "lastRunStatusDateTime": "2026-04-02T15:15:03.000Z",
+        "lastRunStatusErrorCode": null,
+        "measures": [
+          {
+            "apiName": "total_orders__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "CustomerId__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Number",
+            "displayName": "total_orders",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "COUNT(HaworthD2COrder__dlm.OrderId__c)"
+          },
+          {
+            "apiName": "avg_order_value__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "CustomerId__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Number",
+            "displayName": "avg_order_value",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "AVG(HaworthD2COrder__dlm.TotalAmount__c)"
+          },
+          {
+            "apiName": "last_order_date__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "CustomerId__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "DateTime",
+            "displayName": "last_order_date",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "MAX(HaworthD2COrder__dlm.OrderDate__c)"
+          },
+          {
+            "apiName": "total_spend__c",
+            "creationType": "Custom",
+            "dataSource": {
+              "sourceApiName": "CustomerId__c",
+              "type": "STREAMING_DATA_MODEL"
+            },
+            "dataType": "Number",
+            "displayName": "total_spend",
+            "fieldAggregationType": "AGGREGATABLE",
+            "fieldRole": "MEASURE",
+            "formula": "SUM(HaworthD2COrder__dlm.TotalAmount__c)"
+          }
+        ],
+        "publishScheduleEndDate": null,
+        "publishScheduleInterval": "TWELVE",
+        "publishScheduleStartDateTime": "2026-04-02T08:00",
+        "subType": null
+      }
+    ],
+    "nextPageToken": null,
+    "nextPageUrl": null,
+    "previousPageToken": null,
+    "previousPageUrl": null,
+    "total": 3
+  }
+}

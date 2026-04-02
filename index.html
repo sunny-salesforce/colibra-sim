@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collibra Data Catalog — Haworth CDP</title>
+<script src="https://assets.meshmesh.io/system/tailwindcss-browser-4.js"></script>
+<style type="text/tailwindcss">
+@theme {
+  --color-primary: #0176D3;
+  --color-secondary: #032D60;
+  --color-accent: #0D9DDA;
+  --color-surface: #F4F6F9;
+  --color-muted: #444444;
+  --color-border: #D8DDE6;
+  --color-success: #2E844A;
+  --color-error: #EA001E;
+  --color-warning: #FE9339;
+  --color-collibra: #1B365D;
+  --color-collibra-light: #2A5A8F;
+  --color-collibra-accent: #00B4D8;
+  --color-collibra-surface: #F0F4F8;
+}
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+body { font-family: 'Inter', sans-serif; }
+.lineage-node { transition: all 0.3s ease; }
+.lineage-node:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.lineage-arrow { stroke-dasharray: 8; animation: flow 1.5s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -16; } }
+.tab-active { border-bottom: 3px solid #00B4D8; color: #1B365D; font-weight: 600; }
+.fade-in { animation: fadeIn 0.4s ease-in; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.quality-bar { transition: width 0.8s ease-out; }
+.asset-row:hover { background: #F0F4F8; }
+.search-highlight { background: #FFF3CD; padding: 0 2px; border-radius: 2px; }
+.glossary-card:hover { border-color: #00B4D8; }
+</style>
+</head>
+<body class="bg-white text-gray-900 min-h-screen">
+
+<!-- Header -->
+<header class="bg-collibra text-white sticky top-0 z-50 shadow-lg">
+  <div class="max-w-[1400px] mx-auto px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <svg viewBox="0 0 32 32" class="w-8 h-8 fill-white"><circle cx="16" cy="16" r="14" fill="#00B4D8"/><path d="M10 16l4 4 8-8" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="text-xl font-bold tracking-tight">Collibra</span>
+      </div>
+      <span class="text-white/50">|</span>
+      <span class="text-sm text-white/80">Haworth Customer Data Platform</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="relative">
+        <input type="text" id="globalSearch" placeholder="Search assets, terms, fields..."
+          class="bg-white/10 text-white placeholder-white/50 rounded-full px-4 py-1.5 text-sm w-72 focus:outline-none focus:ring-2 focus:ring-collibra-accent focus:bg-white/20"
+          oninput="handleGlobalSearch(this.value)">
+        <svg class="w-4 h-4 absolute right-3 top-2 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+      <div id="searchResults" class="absolute top-14 right-6 bg-white text-gray-900 rounded-lg shadow-2xl w-96 max-h-80 overflow-y-auto hidden z-50"></div>
+      <div class="flex items-center gap-2 text-sm">
+        <div class="w-7 h-7 rounded-full bg-collibra-accent flex items-center justify-center text-xs font-bold">HW</div>
+        <span class="text-white/80">Haworth Admin</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Navigation Tabs -->
+<nav class="bg-white border-b border-gray-200 sticky top-[52px] z-40">
+  <div class="max-w-[1400px] mx-auto px-6 flex gap-0">
+    <button onclick="showTab('catalog')" id="tab-catalog" class="px-5 py-3 text-sm tab-active cursor-pointer hover:text-collibra transition-colors">
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+        Data Catalog
+      </span>
+    </button>
+    <button onclick="showTab('lineage')" id="tab-lineage" class="px-5 py-3 text-sm text-gray-500 cursor-pointer hover:text-collibra transition-colors">
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Data Lineage
+      </span>
+    </button>
+    <button onclick="showTab('glossary')" id="tab-glossary" class="px-5 py-3 text-sm text-gray-500 cursor-pointer hover:text-collibra transition-colors">
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        Business Glossary
+      </span>
+    </button>
+    <button onclick="showTab('governance')" id="tab-governance" class="px-5 py-3 text-sm text-gray-500 cursor-pointer hover:text-collibra transition-colors">
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Governance
+      </span>
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="max-w-[1400px] mx-auto px-6 py-6">
+
+<!-- ========== TAB 1: DATA CATALOG ========== -->
+<div id="panel-catalog" class="fade-in">
+
+  <!-- Summary Cards -->
+  <div class="grid grid-cols-6 gap-4 mb-6">
+    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm">
+      <div class="text-2xl font-bold text-collibra">134,811</div>
+      <div class="text-xs text-gray-500 mt-1">Total Records</div>
+    </div>
+    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm">
+      <div class="text-2xl font-bold text-collibra-accent">16</div>
+      <div class="text-xs text-gray-500 mt-1">Data Assets</div>
+    </div>
+    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm">
+      <div class="text-2xl font-bold text-success">4</div>
+      <div class="text-xs text-gray-500 mt-1">Source Systems</div>
+    </div>
+    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm">
+      <div class="text-2xl font-bold text-primary">3</div>
+      <div class="text-xs text-gray-500 mt-1">Data Spaces</div>
+    </div>
+    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm">
+      <div class="text-2xl font-bold text-warning">13</div>
+      <div class="text-xs text-gray-500 mt-1">Segments</div>
+    </div>
+    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm">
+      <div class="text-2xl font-bold text-success">94%</div>
+      <div class="text-xs text-gray-500 mt-1">Quality Score</div>
+    </div>
+  </div>
+
+  <!-- Domain Filter -->
+  <div class="flex gap-2 mb-4">
+    <button onclick="filterCatalog('all')" class="catalog-filter px-3 py-1.5 text-xs rounded-full bg-collibra text-white font-medium">All Assets</button>
+    <button onclick="filterCatalog('source')" class="catalog-filter px-3 py-1.5 text-xs rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">Source Systems</button>
+    <button onclick="filterCatalog('dmo')" class="catalog-filter px-3 py-1.5 text-xs rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">Data Model</button>
+    <button onclick="filterCatalog('unified')" class="catalog-filter px-3 py-1.5 text-xs rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">Unified Profiles</button>
+    <button onclick="filterCatalog('ci')" class="catalog-filter px-3 py-1.5 text-xs rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">Calculated Insights</button>
+    <button onclick="filterCatalog('segment')" class="catalog-filter px-3 py-1.5 text-xs rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">Segments</button>
+  </div>
+
+  <!-- Catalog Table -->
+  <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+    <table class="w-full text-sm">
+      <thead class="bg-collibra-surface">
+        <tr>
+          <th class="text-left px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Asset Name</th>
+          <th class="text-left px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Domain</th>
+          <th class="text-left px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Type</th>
+          <th class="text-right px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Records</th>
+          <th class="text-right px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Fields</th>
+          <th class="text-left px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Steward</th>
+          <th class="text-left px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Classification</th>
+          <th class="text-center px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Quality</th>
+          <th class="text-left px-4 py-3 font-semibold text-collibra text-xs uppercase tracking-wider">Status</th>
+        </tr>
+      </thead>
+      <tbody id="catalogBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Asset Detail Drawer -->
+  <div id="assetDrawer" class="fixed inset-y-0 right-0 w-[480px] bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto">
+    <div class="sticky top-0 bg-collibra text-white px-6 py-4 flex justify-between items-center">
+      <h3 id="drawerTitle" class="font-semibold text-lg"></h3>
+      <button onclick="closeDrawer()" class="text-white/80 hover:text-white cursor-pointer"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div id="drawerContent" class="p-6"></div>
+  </div>
+</div>
+
+<!-- ========== TAB 2: DATA LINEAGE ========== -->
+<div id="panel-lineage" class="hidden fade-in">
+  <div class="mb-4 flex items-center justify-between">
+    <h2 class="text-lg font-semibold text-collibra">End-to-End Data Lineage</h2>
+    <div class="flex gap-2">
+      <span class="flex items-center gap-1 text-xs text-gray-500"><span class="w-3 h-3 rounded bg-blue-100 border border-blue-300 inline-block"></span>Source System</span>
+      <span class="flex items-center gap-1 text-xs text-gray-500"><span class="w-3 h-3 rounded bg-green-100 border border-green-300 inline-block"></span>IngestAPI</span>
+      <span class="flex items-center gap-1 text-xs text-gray-500"><span class="w-3 h-3 rounded bg-purple-100 border border-purple-300 inline-block"></span>Data Model</span>
+      <span class="flex items-center gap-1 text-xs text-gray-500"><span class="w-3 h-3 rounded bg-amber-100 border border-amber-300 inline-block"></span>IDR</span>
+      <span class="flex items-center gap-1 text-xs text-gray-500"><span class="w-3 h-3 rounded bg-orange-100 border border-orange-300 inline-block"></span>Unified</span>
+      <span class="flex items-center gap-1 text-xs text-gray-500"><span class="w-3 h-3 rounded bg-teal-100 border border-teal-300 inline-block"></span>Analytics</span>
+      <span class="flex items-center gap-1 text-xs text-gray-500"><span class="w-3 h-3 rounded bg-rose-100 border border-rose-300 inline-block"></span>Audience</span>
+    </div>
+  </div>
+  <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-4 overflow-x-auto">
+    <svg id="lineageSvg" viewBox="0 0 1360 820" class="w-full" style="min-width: 1200px;"></svg>
+  </div>
+</div>
+
+<!-- ========== TAB 3: BUSINESS GLOSSARY ========== -->
+<div id="panel-glossary" class="hidden fade-in">
+  <div class="mb-4 flex items-center justify-between">
+    <h2 class="text-lg font-semibold text-collibra">Haworth Business Glossary</h2>
+    <input type="text" id="glossarySearch" placeholder="Search terms..."
+      class="border border-gray-300 rounded-lg px-3 py-1.5 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-collibra-accent" oninput="filterGlossary(this.value)">
+  </div>
+  <div id="glossaryGrid" class="grid grid-cols-2 gap-4"></div>
+</div>
+
+<!-- ========== TAB 4: GOVERNANCE ========== -->
+<div id="panel-governance" class="hidden fade-in">
+  <h2 class="text-lg font-semibold text-collibra mb-4">Data Governance Dashboard</h2>
+
+  <!-- Governance KPIs -->
+  <div class="grid grid-cols-4 gap-4 mb-6">
+    <div class="bg-gradient-to-br from-collibra to-collibra-light text-white rounded-lg p-5 shadow-md">
+      <div class="text-3xl font-bold">94%</div>
+      <div class="text-sm mt-1 text-white/80">Overall Data Quality</div>
+      <div class="mt-2 bg-white/20 rounded-full h-2"><div class="bg-white rounded-full h-2 quality-bar" style="width:94%"></div></div>
+    </div>
+    <div class="bg-gradient-to-br from-success to-emerald-600 text-white rounded-lg p-5 shadow-md">
+      <div class="text-3xl font-bold">100%</div>
+      <div class="text-sm mt-1 text-white/80">Policy Compliance</div>
+      <div class="mt-2 bg-white/20 rounded-full h-2"><div class="bg-white rounded-full h-2 quality-bar" style="width:100%"></div></div>
+    </div>
+    <div class="bg-gradient-to-br from-collibra-accent to-cyan-600 text-white rounded-lg p-5 shadow-md">
+      <div class="text-3xl font-bold">87%</div>
+      <div class="text-sm mt-1 text-white/80">Classification Coverage</div>
+      <div class="mt-2 bg-white/20 rounded-full h-2"><div class="bg-white rounded-full h-2 quality-bar" style="width:87%"></div></div>
+    </div>
+    <div class="bg-gradient-to-br from-violet-600 to-purple-700 text-white rounded-lg p-5 shadow-md">
+      <div class="text-3xl font-bold">6</div>
+      <div class="text-sm mt-1 text-white/80">Assigned Stewards</div>
+      <div class="mt-2 text-xs text-white/60">Across 16 data assets</div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-6">
+    <!-- Data Quality by Asset -->
+    <div class="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
+      <h3 class="font-semibold text-collibra mb-4 text-sm">Data Quality by Asset</h3>
+      <div id="qualityBars" class="space-y-3"></div>
+    </div>
+
+    <!-- IDR Performance -->
+    <div class="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
+      <h3 class="font-semibold text-collibra mb-4 text-sm">Identity Resolution Performance</h3>
+      <div class="space-y-4">
+        <div class="border border-gray-100 rounded-lg p-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-medium text-sm">B2B Account Resolution (hb2b)</span>
+            <span class="text-xs bg-success/10 text-success px-2 py-0.5 rounded-full font-medium">SUCCESS</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div><div class="text-lg font-bold text-collibra">2,001</div><div class="text-[10px] text-gray-400">Source</div></div>
+            <div><div class="text-lg font-bold text-success">1,325</div><div class="text-[10px] text-gray-400">Unified</div></div>
+            <div><div class="text-lg font-bold text-warning">34%</div><div class="text-[10px] text-gray-400">Consolidation</div></div>
+          </div>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-medium text-sm">Individual Resolution (hwth)</span>
+            <span class="text-xs bg-success/10 text-success px-2 py-0.5 rounded-full font-medium">SUCCESS</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div><div class="text-lg font-bold text-collibra">10,000</div><div class="text-[10px] text-gray-400">Source</div></div>
+            <div><div class="text-lg font-bold text-success">9,493</div><div class="text-[10px] text-gray-400">Unified</div></div>
+            <div><div class="text-lg font-bold text-warning">5%</div><div class="text-[10px] text-gray-400">Consolidation</div></div>
+          </div>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-medium text-sm">D2C Individual Resolution (hd2c)</span>
+            <span class="text-xs bg-success/10 text-success px-2 py-0.5 rounded-full font-medium">SUCCESS</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div><div class="text-lg font-bold text-collibra">10,000</div><div class="text-[10px] text-gray-400">Source</div></div>
+            <div><div class="text-lg font-bold text-success">9,493</div><div class="text-[10px] text-gray-400">Unified</div></div>
+            <div><div class="text-lg font-bold text-warning">5%</div><div class="text-[10px] text-gray-400">Consolidation</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Classification Distribution -->
+    <div class="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
+      <h3 class="font-semibold text-collibra mb-4 text-sm">Data Classification Distribution</h3>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3"><span class="w-24 text-xs text-gray-500">PII</span><div class="flex-1 bg-gray-100 rounded-full h-5"><div class="bg-error/80 rounded-full h-5 flex items-center pl-2 text-[10px] text-white font-medium" style="width:35%">35%</div></div></div>
+        <div class="flex items-center gap-3"><span class="w-24 text-xs text-gray-500">Confidential</span><div class="flex-1 bg-gray-100 rounded-full h-5"><div class="bg-warning/80 rounded-full h-5 flex items-center pl-2 text-[10px] text-white font-medium" style="width:25%">25%</div></div></div>
+        <div class="flex items-center gap-3"><span class="w-24 text-xs text-gray-500">Internal</span><div class="flex-1 bg-gray-100 rounded-full h-5"><div class="bg-collibra-accent/80 rounded-full h-5 flex items-center pl-2 text-[10px] text-white font-medium" style="width:30%">30%</div></div></div>
+        <div class="flex items-center gap-3"><span class="w-24 text-xs text-gray-500">Public</span><div class="flex-1 bg-gray-100 rounded-full h-5"><div class="bg-success/80 rounded-full h-5 flex items-center pl-2 text-[10px] text-white font-medium" style="width:10%">10%</div></div></div>
+      </div>
+    </div>
+
+    <!-- Stewardship -->
+    <div class="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
+      <h3 class="font-semibold text-collibra mb-4 text-sm">Data Stewardship Assignments</h3>
+      <div class="space-y-3" id="stewardshipList"></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-gray-200 mt-8 py-4 text-center text-xs text-gray-400">
+  Collibra Data Intelligence Platform — Haworth CDP Integration Demo &middot; Powered by Salesforce Data Cloud
+</footer>
+
+<script>
+// ==================== DATA ====================
+const catalogData = [
+  // Source Systems
+  {id:'src-dynamics',name:'MS Dynamics 365',domain:'Source Systems',type:'CRM',records:null,fields:null,steward:'Sarah Mitchell',classification:'Confidential',quality:96,status:'Connected',category:'source',
+    description:'Primary CRM system. Bi-directional sync with Data Cloud via IngestAPI connector.',sourceFields:['Accounts','Contacts','Email Addresses','Phone Numbers','Addresses'],connection:'Haworth Dynamics 365'},
+  {id:'src-sap',name:'SAP ECC / S4 HANA',domain:'Source Systems',type:'ERP',records:null,fields:null,steward:'James Chen',classification:'Confidential',quality:94,status:'Connected',category:'source',
+    description:'Enterprise ERP for purchase orders and financial data. Migrating from ECC to S4 HANA.',sourceFields:['Purchase Orders','Product Catalog','Pricing'],connection:'Haworth SAP'},
+  {id:'src-hubspot',name:'HubSpot',domain:'Source Systems',type:'Marketing',records:null,fields:null,steward:'Maria Garcia',classification:'Internal',quality:91,status:'Connected',category:'source',
+    description:'Marketing automation and consent management. Bi-directional for engagement tracking.',sourceFields:['Engagements','Influencers','Campaign Data','Consent Records'],connection:'Haworth HubSpot'},
+  {id:'src-ecommerce',name:'D2C Ecommerce Platform',domain:'Source Systems',type:'Commerce',records:null,fields:null,steward:'Kevin Park',classification:'Confidential',quality:93,status:'Connected',category:'source',
+    description:'Direct-to-consumer online storefront for residential furniture purchases.',sourceFields:['D2C Customers','D2C Orders','Product Views'],connection:'Haworth Ecommerce'},
+
+  // DMOs
+  {id:'dmo-individual',name:'Individual',domain:'Data Model',type:'Standard DMO',records:10000,fields:8,steward:'Sarah Mitchell',classification:'PII',quality:97,status:'Active',category:'dmo',
+    apiName:'ssot__Individual__dlm',description:'Core profile entity for all contacts, customers, and influencers. Maps to Dynamics 365 contacts and HubSpot contacts.',
+    fieldList:[{n:'Id',t:'TEXT',c:'PII'},{n:'FirstName',t:'TEXT',c:'PII'},{n:'LastName',t:'TEXT',c:'PII'},{n:'AccountId',t:'TEXT',c:'Internal'},{n:'Title',t:'TEXT',c:'Internal'},{n:'PersonName',t:'TEXT',c:'PII'},{n:'CreatedDate',t:'DATE',c:''},{n:'DataSourceId',t:'TEXT',c:'Internal'}]},
+  {id:'dmo-account',name:'Account',domain:'Data Model',type:'Standard DMO',records:2001,fields:13,steward:'James Chen',classification:'Confidential',quality:95,status:'Active',category:'dmo',
+    apiName:'ssot__Account__dlm',description:'B2B organizational entities. Sources: Dynamics 365 and SAP.',
+    fieldList:[{n:'Id',t:'TEXT',c:'Internal'},{n:'Name',t:'TEXT',c:'Confidential'},{n:'AccountType',t:'TEXT',c:'Internal'},{n:'Industry',t:'TEXT',c:'Internal'},{n:'AnnualRevenue',t:'NUMBER',c:'Confidential'},{n:'EmployeeCount',t:'NUMBER',c:'Internal'},{n:'BillingCity',t:'TEXT',c:''},{n:'BillingState',t:'TEXT',c:''},{n:'BillingCountry',t:'TEXT',c:''},{n:'ParentAccountId',t:'TEXT',c:'Internal'},{n:'AssignTerritoryFlag',t:'TEXT',c:'Internal'},{n:'CreatedDate',t:'DATE',c:''},{n:'DataSourceId',t:'TEXT',c:'Internal'}]},
+  {id:'dmo-cpe',name:'Contact Point Email',domain:'Data Model',type:'Standard DMO',records:10000,fields:8,steward:'Maria Garcia',classification:'PII',quality:98,status:'Active',category:'dmo',
+    apiName:'ssot__ContactPointEmail__dlm',description:'Email contact points linked to individuals. Used by IDR for exact email matching.',
+    fieldList:[{n:'Id',t:'TEXT',c:'Internal'},{n:'EmailAddress',t:'TEXT',c:'PII'},{n:'PartyId',t:'TEXT',c:'Internal'},{n:'IsPrimary',t:'BOOLEAN',c:''},{n:'EmailType',t:'TEXT',c:''},{n:'IsVerified',t:'BOOLEAN',c:''},{n:'CreatedDate',t:'DATE',c:''},{n:'DataSourceId',t:'TEXT',c:'Internal'}]},
+  {id:'dmo-cpp',name:'Contact Point Phone',domain:'Data Model',type:'Standard DMO',records:10000,fields:9,steward:'Maria Garcia',classification:'PII',quality:96,status:'Active',category:'dmo',
+    apiName:'ssot__ContactPointPhone__dlm',description:'Phone contact points. E164 formatted. Used by IDR for exact phone matching.',
+    fieldList:[{n:'Id',t:'TEXT',c:'Internal'},{n:'FormattedE164PhoneNumber',t:'TEXT',c:'PII'},{n:'PartyId',t:'TEXT',c:'Internal'},{n:'IsPrimary',t:'BOOLEAN',c:''},{n:'PhoneType',t:'TEXT',c:''},{n:'AreaCode',t:'TEXT',c:''},{n:'CountryCode',t:'TEXT',c:''},{n:'CreatedDate',t:'DATE',c:''},{n:'DataSourceId',t:'TEXT',c:'Internal'}]},
+  {id:'dmo-cpa',name:'Contact Point Address',domain:'Data Model',type:'Standard DMO',records:7000,fields:12,steward:'Kevin Park',classification:'PII',quality:92,status:'Active',category:'dmo',
+    apiName:'ssot__ContactPointAddress__dlm',description:'Physical addresses for contacts and accounts. Used for B2B install-at-location matching.',
+    fieldList:[{n:'Id',t:'TEXT',c:'Internal'},{n:'AddressLine1',t:'TEXT',c:'PII'},{n:'AddressLine2',t:'TEXT',c:'PII'},{n:'City',t:'TEXT',c:'PII'},{n:'StateProvince',t:'TEXT',c:''},{n:'PostalCode',t:'TEXT',c:'PII'},{n:'Country',t:'TEXT',c:''},{n:'PartyId',t:'TEXT',c:'Internal'},{n:'IsPrimary',t:'BOOLEAN',c:''},{n:'AddressType',t:'TEXT',c:''},{n:'CreatedDate',t:'DATE',c:''},{n:'DataSourceId',t:'TEXT',c:'Internal'}]},
+  {id:'dmo-po',name:'Haworth Purchase Order',domain:'Data Model',type:'Custom DMO',records:25000,fields:19,steward:'James Chen',classification:'Confidential',quality:95,status:'Active',category:'dmo',
+    apiName:'HaworthPurchaseOrder__dlm',description:'B2B purchase order transactions from SAP ECC. Feeds B2B Account Revenue CI.',
+    fieldList:[{n:'OrderId',t:'TEXT',c:'Internal'},{n:'AccountId',t:'TEXT',c:'Internal'},{n:'OrderDate',t:'DATE',c:''},{n:'TotalAmount',t:'NUMBER',c:'Confidential'},{n:'Status',t:'TEXT',c:''},{n:'ProductCategory',t:'TEXT',c:''},{n:'Quantity',t:'NUMBER',c:''},{n:'UnitPrice',t:'NUMBER',c:'Confidential'}]},
+  {id:'dmo-engagement',name:'Haworth Engagement',domain:'Data Model',type:'Custom DMO',records:25000,fields:14,steward:'Maria Garcia',classification:'Internal',quality:93,status:'Active',category:'dmo',
+    apiName:'HaworthEngagement__dlm',description:'B2B engagement events: trade shows, webinars, meetings. Feeds Engagement Score CI.',
+    fieldList:[{n:'EngagementId',t:'TEXT',c:'Internal'},{n:'ContactId',t:'TEXT',c:'Internal'},{n:'EngagementType',t:'TEXT',c:''},{n:'EngagementDate',t:'DATE',c:''},{n:'Channel',t:'TEXT',c:''},{n:'Score',t:'NUMBER',c:''}]},
+  {id:'dmo-d2c',name:'Haworth D2C Order',domain:'Data Model',type:'Custom DMO',records:10000,fields:14,steward:'Kevin Park',classification:'Confidential',quality:94,status:'Active',category:'dmo',
+    apiName:'HaworthD2COrder__dlm',description:'Direct-to-consumer order transactions. Feeds D2C Customer LTV CI.',
+    fieldList:[{n:'OrderId',t:'TEXT',c:'Internal'},{n:'CustomerId',t:'TEXT',c:'Internal'},{n:'OrderDate',t:'DATE',c:''},{n:'TotalAmount',t:'NUMBER',c:'Confidential'},{n:'ProductName',t:'TEXT',c:''},{n:'Category',t:'TEXT',c:''},{n:'PaymentMethod',t:'TEXT',c:''}]},
+  {id:'dmo-influencer',name:'Haworth Influencer',domain:'Data Model',type:'Custom DMO',records:0,fields:8,steward:'Sarah Mitchell',classification:'Internal',quality:0,status:'Active',category:'dmo',
+    apiName:'HaworthInfluencer__dlm',description:'Architects, designers, and general contractors who influence B2B purchasing decisions.',
+    fieldList:[{n:'InfluencerId',t:'TEXT',c:'Internal'},{n:'Name',t:'TEXT',c:'PII'},{n:'Role',t:'TEXT',c:''},{n:'Firm',t:'TEXT',c:''}]},
+
+  // Unified DMOs
+  {id:'uni-account',name:'Unified Account (B2B)',domain:'Unified Profiles',type:'Unified DMO',records:1325,fields:9,steward:'James Chen',classification:'Confidential',quality:98,status:'Active',category:'unified',
+    apiName:'UnifiedssotAccountHb2b__dlm',description:'Golden B2B account records created by Account-based IDR (hb2b). 34% consolidation from 2,001 source accounts.',
+    fieldList:[{n:'UnifiedAccountId',t:'TEXT',c:'Internal'},{n:'AccountName',t:'TEXT',c:'Confidential'},{n:'AccountType',t:'TEXT',c:''},{n:'AnnualRevenueAmount',t:'NUMBER',c:'Confidential'},{n:'EmployeeCount',t:'NUMBER',c:''},{n:'PrimaryIndustry',t:'TEXT',c:''},{n:'ParentAccount',t:'TEXT',c:''},{n:'AssignTerritoryFlag',t:'TEXT',c:''},{n:'CreatedDate',t:'DATE',c:''}]},
+  {id:'uni-individual',name:'Unified Individual (hwth)',domain:'Unified Profiles',type:'Unified DMO',records:9493,fields:5,steward:'Sarah Mitchell',classification:'PII',quality:97,status:'Active',category:'unified',
+    apiName:'UnifiedssotIndividualHwth__dlm',description:'Golden individual records from default IDR. 5% consolidation using email + phone matching.',
+    fieldList:[{n:'UnifiedIndividualId',t:'TEXT',c:'Internal'},{n:'FirstName',t:'TEXT',c:'PII'},{n:'LastName',t:'TEXT',c:'PII'},{n:'Title',t:'TEXT',c:''},{n:'CreatedDate',t:'DATE',c:''}]},
+  {id:'uni-d2c',name:'Unified Individual (D2C)',domain:'Unified Profiles',type:'Unified DMO',records:9493,fields:5,steward:'Kevin Park',classification:'PII',quality:97,status:'Active',category:'unified',
+    apiName:'UnifiedssotIndividualHd2c__dlm',description:'Golden D2C customer records. Same population as hwth but in D2C data space context.',
+    fieldList:[{n:'UnifiedIndividualId',t:'TEXT',c:'Internal'},{n:'FirstName',t:'TEXT',c:'PII'},{n:'LastName',t:'TEXT',c:'PII'},{n:'Title',t:'TEXT',c:''},{n:'CreatedDate',t:'DATE',c:''}]},
+
+  // Calculated Insights
+  {id:'ci-revenue',name:'B2B Account Revenue Metrics',domain:'Analytics',type:'Calculated Insight',records:2001,fields:5,steward:'James Chen',classification:'Confidential',quality:99,status:'Active',category:'ci',
+    apiName:'b2b_account_revenue__cio',description:'Aggregated purchase order metrics per account: total revenue, order count, average order value, last order date.',
+    fieldList:[{n:'account_id',t:'TEXT',c:'Internal'},{n:'total_orders',t:'NUMBER',c:''},{n:'total_revenue',t:'NUMBER',c:'Confidential'},{n:'last_order_date',t:'DATE',c:''},{n:'avg_order_value',t:'NUMBER',c:'Confidential'}]},
+  {id:'ci-engagement',name:'B2B Contact Engagement Score',domain:'Analytics',type:'Calculated Insight',records:4792,fields:4,steward:'Maria Garcia',classification:'Internal',quality:98,status:'Active',category:'ci',
+    apiName:'b2b_contact_engagement__cio',description:'Engagement metrics per contact: total engagements, trade show attendance, last engagement date.',
+    fieldList:[{n:'contact_id',t:'TEXT',c:'Internal'},{n:'total_engagements',t:'NUMBER',c:''},{n:'trade_show_count',t:'NUMBER',c:''},{n:'last_engagement_date',t:'DATE',c:''}]},
+  {id:'ci-ltv',name:'D2C Customer Lifetime Value',domain:'Analytics',type:'Calculated Insight',records:10000,fields:5,steward:'Kevin Park',classification:'Confidential',quality:98,status:'Active',category:'ci',
+    apiName:'d2c_customer_ltv__cio',description:'Aggregated D2C order metrics per customer: total spend, order count, average order value, last order date.',
+    fieldList:[{n:'individual_id',t:'TEXT',c:'Internal'},{n:'total_orders',t:'NUMBER',c:''},{n:'total_spend',t:'NUMBER',c:'Confidential'},{n:'last_order_date',t:'DATE',c:''},{n:'avg_order_value',t:'NUMBER',c:'Confidential'}]},
+];
+
+const segmentData = [
+  {name:'Healthcare Renewal Targets',segmentOn:'Unified Account hb2b',count:374,status:'Active',priority:'High',category:'segment'},
+  {name:'High-Value Accounts',segmentOn:'Unified Account hb2b',count:1196,status:'Active',priority:'Medium',category:'segment'},
+  {name:'Growth Trajectory Accounts',segmentOn:'Unified Account hb2b',count:1318,status:'Active',priority:'Medium',category:'segment'},
+  {name:'Education Vertical',segmentOn:'Unified Account hb2b',count:266,status:'Active',priority:'Low',category:'segment'},
+  {name:'Dealer Network Accounts',segmentOn:'Unified Account hb2b',count:412,status:'Active',priority:'Medium',category:'segment'},
+  {name:'Southwest Region Accounts',segmentOn:'Unified Account hb2b',count:0,status:'Active',priority:'Low',category:'segment'},
+  {name:'Trade Show Engaged Accounts',segmentOn:'Unified Account hb2b',count:0,status:'Active',priority:'Medium',category:'segment'},
+  {name:'Win-Back Target Accounts',segmentOn:'Unified Account hb2b',count:18,status:'Active',priority:'Medium',category:'segment'},
+  {name:'Healthcare Accounts',segmentOn:'Unified Individual hwth',count:9493,status:'Active',priority:'Medium',category:'segment'},
+  {name:'Active D2C Customers',segmentOn:'Unified Individual hd2c',count:0,status:'Error',priority:'Medium',category:'segment'},
+  {name:'D2C High Spenders',segmentOn:'Unified Individual hd2c',count:0,status:'Error',priority:'Medium',category:'segment'},
+  {name:'Healthcare Renewal Priority Tiers',segmentOn:'Unified Account hb2b',count:0,status:'Error',priority:'High',category:'segment'},
+  {name:'D2C Purchase Recency Tiers',segmentOn:'Unified Individual hd2c',count:0,status:'Error',priority:'Medium',category:'segment'},
+];
+
+const glossaryTerms = [
+  {term:'Customer Account',technical:'ssot__Account__dlm',definition:'A B2B organizational entity that purchases Haworth office furniture products. Accounts represent companies, hospitals, schools, and dealer organizations.',domain:'B2B',owner:'James Chen'},
+  {term:'Golden Account Record',technical:'UnifiedssotAccountHb2b__dlm',definition:'The de-duplicated, reconciled master account record produced by Account-based Identity Resolution. Represents the single source of truth for each B2B customer.',domain:'B2B',owner:'James Chen'},
+  {term:'Contact / Individual',technical:'ssot__Individual__dlm',definition:'A person associated with a customer account — employees, procurement officers, or facilities managers who make or influence purchasing decisions.',domain:'B2B / D2C',owner:'Sarah Mitchell'},
+  {term:'Influencer',technical:'HaworthInfluencer__dlm',definition:'Architects, interior designers, and general contractors who participate in and influence the B2B furniture purchasing cycle but are not direct buyers.',domain:'B2B',owner:'Sarah Mitchell'},
+  {term:'Healthcare Customer',technical:'Segment: Healthcare Renewal Targets',definition:'An account in the healthcare vertical (hospitals, clinics, medical offices) where furniture lifecycles typically renew every 5–7 years due to wear and infection control requirements.',domain:'B2B',owner:'Maria Garcia'},
+  {term:'Purchase Order',technical:'HaworthPurchaseOrder__dlm',definition:'A B2B product order transaction originating from SAP ECC. Contains order amounts, product categories, quantities, and dates.',domain:'B2B',owner:'James Chen'},
+  {term:'D2C Customer',technical:'UnifiedssotIndividualHd2c__dlm',definition:'A direct-to-consumer residential buyer who purchases Haworth products through the ecommerce platform. Small but growing segment of the business.',domain:'D2C',owner:'Kevin Park'},
+  {term:'Customer Lifetime Value (LTV)',technical:'d2c_customer_ltv__cio',definition:'Calculated total spend, order count, and average order value per D2C customer aggregated from all ecommerce transactions.',domain:'D2C',owner:'Kevin Park'},
+  {term:'Account Revenue Score',technical:'b2b_account_revenue__cio',definition:'Aggregated revenue metrics per B2B account — total revenue, total orders, average order value — derived from SAP purchase order data.',domain:'B2B',owner:'James Chen'},
+  {term:'Engagement Score',technical:'b2b_contact_engagement__cio',definition:'Aggregated engagement metrics per contact — total engagements, trade show visits, last engagement date — derived from HubSpot event data.',domain:'B2B',owner:'Maria Garcia'},
+  {term:'Dealer',technical:'Account where AccountType = "Dealer"',definition:'A channel partner that resells Haworth products to end customers. Haworth provides valuable data insights back to dealers as a competitive differentiator.',domain:'B2B',owner:'James Chen'},
+  {term:'Furniture Lifecycle Renewal',technical:'Healthcare Renewal Priority Tiers segment',definition:'The projected replacement cycle for office furniture, typically 5–7 years in healthcare settings. Drives the Healthcare Renewal Campaign targeting.',domain:'B2B',owner:'Maria Garcia'},
+  {term:'Identity Resolution',technical:'IDR Rulesets (hwth, hb2b, hd2c)',definition:'The automated process of matching and merging customer records from multiple source systems to create a single golden record. Uses exact email, phone, and account name matching.',domain:'Platform',owner:'Sarah Mitchell'},
+  {term:'Data Space',technical:'B2B / D2C / default',definition:'An isolated logical partition within Data Cloud that contains its own set of DMOs, IDR rulesets, and segments. Haworth uses separate spaces for B2B and D2C business models.',domain:'Platform',owner:'Sarah Mitchell'},
+  {term:'Trade Show Lead',technical:'HaworthEngagement where Type = "Trade Show Visit"',definition:'A contact who attended a Haworth-sponsored trade show or industry event. Key indicator of purchase intent in B2B furniture sales.',domain:'B2B',owner:'Maria Garcia'},
+  {term:'Win-Back Account',technical:'Win-Back Target Accounts segment',definition:'A previously active B2B account that has not placed an order recently and is targeted for re-engagement campaigns.',domain:'B2B',owner:'Maria Garcia'},
+];
+
+// ==================== CATALOG ====================
+function renderCatalog(filter='all') {
+  const body = document.getElementById('catalogBody');
+  let items = [...catalogData];
+  if (filter !== 'all') items = items.filter(i => i.category === filter);
+
+  // Add segments
+  if (filter === 'all' || filter === 'segment') {
+    segmentData.forEach((s,i) => {
+      items.push({id:'seg-'+i,name:s.name,domain:'Audiences',type:'Segment',records:s.count,fields:null,
+        steward:'Maria Garcia',classification:'Internal',quality:s.status==='Active'?96:0,status:s.status,category:'segment'});
+    });
+  }
+
+  body.innerHTML = items.map(item => {
+    const statusColor = item.status==='Active'||item.status==='Connected'?'bg-success/10 text-success':item.status==='Error'?'bg-error/10 text-error':'bg-gray-100 text-gray-500';
+    const classColor = item.classification==='PII'?'bg-error/10 text-error':item.classification==='Confidential'?'bg-warning/10 text-warning':item.classification==='Internal'?'bg-collibra-accent/10 text-collibra-accent':'bg-gray-100 text-gray-500';
+    const qualityColor = item.quality>=95?'bg-success':item.quality>=85?'bg-collibra-accent':item.quality>=70?'bg-warning':'bg-error';
+    return `<tr class="asset-row border-b border-gray-100 cursor-pointer" onclick="openDrawer('${item.id}')">
+      <td class="px-4 py-3 font-medium text-collibra hover:underline">${item.name}</td>
+      <td class="px-4 py-3 text-gray-500 text-xs">${item.domain}</td>
+      <td class="px-4 py-3"><span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">${item.type}</span></td>
+      <td class="px-4 py-3 text-right font-mono text-xs">${item.records !== null ? item.records.toLocaleString() : '—'}</td>
+      <td class="px-4 py-3 text-right font-mono text-xs">${item.fields || '—'}</td>
+      <td class="px-4 py-3 text-xs text-gray-500">${item.steward}</td>
+      <td class="px-4 py-3"><span class="text-[10px] px-2 py-0.5 rounded-full font-medium ${classColor}">${item.classification||'—'}</span></td>
+      <td class="px-4 py-3"><div class="flex items-center justify-center gap-1"><div class="w-12 bg-gray-100 rounded-full h-1.5"><div class="${qualityColor} rounded-full h-1.5" style="width:${item.quality}%"></div></div><span class="text-[10px] text-gray-400">${item.quality||'—'}%</span></div></td>
+      <td class="px-4 py-3"><span class="text-[10px] px-2 py-0.5 rounded-full font-medium ${statusColor}">${item.status}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function filterCatalog(filter) {
+  document.querySelectorAll('.catalog-filter').forEach(b => {b.className = b.className.replace('bg-collibra text-white','bg-gray-100 text-gray-600 hover:bg-gray-200');});
+  event.target.className = event.target.className.replace('bg-gray-100 text-gray-600 hover:bg-gray-200','bg-collibra text-white');
+  renderCatalog(filter);
+}
+
+function openDrawer(id) {
+  const item = catalogData.find(i => i.id === id);
+  if (!item) return;
+  document.getElementById('drawerTitle').textContent = item.name;
+  let html = `
+    <div class="space-y-4">
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-collibra-surface rounded-lg p-3"><div class="text-[10px] text-gray-400 uppercase">Domain</div><div class="font-medium text-sm mt-0.5">${item.domain}</div></div>
+        <div class="bg-collibra-surface rounded-lg p-3"><div class="text-[10px] text-gray-400 uppercase">Type</div><div class="font-medium text-sm mt-0.5">${item.type}</div></div>
+        <div class="bg-collibra-surface rounded-lg p-3"><div class="text-[10px] text-gray-400 uppercase">Records</div><div class="font-medium text-sm mt-0.5">${item.records !== null ? item.records.toLocaleString() : 'N/A'}</div></div>
+        <div class="bg-collibra-surface rounded-lg p-3"><div class="text-[10px] text-gray-400 uppercase">Quality</div><div class="font-medium text-sm mt-0.5">${item.quality}%</div></div>
+        <div class="bg-collibra-surface rounded-lg p-3"><div class="text-[10px] text-gray-400 uppercase">Steward</div><div class="font-medium text-sm mt-0.5">${item.steward}</div></div>
+        <div class="bg-collibra-surface rounded-lg p-3"><div class="text-[10px] text-gray-400 uppercase">Classification</div><div class="font-medium text-sm mt-0.5">${item.classification}</div></div>
+      </div>
+      ${item.apiName ? `<div class="bg-gray-50 rounded-lg p-3"><div class="text-[10px] text-gray-400 uppercase mb-1">API Name</div><code class="text-xs text-collibra">${item.apiName}</code></div>` : ''}
+      <div><div class="text-xs text-gray-400 uppercase mb-1">Description</div><p class="text-sm text-gray-700 leading-relaxed">${item.description}</p></div>`;
+
+  if (item.fieldList) {
+    html += `<div><div class="text-xs text-gray-400 uppercase mb-2">Fields (${item.fieldList.length})</div><div class="border border-gray-200 rounded-lg overflow-hidden"><table class="w-full text-xs">
+      <thead class="bg-collibra-surface"><tr><th class="text-left px-3 py-2 font-medium">Field</th><th class="text-left px-3 py-2 font-medium">Type</th><th class="text-left px-3 py-2 font-medium">Class</th></tr></thead>
+      <tbody>${item.fieldList.map(f => {
+        const cc = f.c==='PII'?'bg-error/10 text-error':f.c==='Confidential'?'bg-warning/10 text-warning':f.c==='Internal'?'bg-blue-50 text-blue-600':'';
+        return `<tr class="border-t border-gray-100"><td class="px-3 py-1.5 font-mono">${f.n}</td><td class="px-3 py-1.5 text-gray-500">${f.t}</td><td class="px-3 py-1.5">${f.c?`<span class="text-[10px] px-1.5 py-0.5 rounded ${cc}">${f.c}</span>`:''}</td></tr>`;
+      }).join('')}</tbody></table></div></div>`;
+  }
+  if (item.sourceFields) {
+    html += `<div><div class="text-xs text-gray-400 uppercase mb-2">Source Objects</div><div class="flex flex-wrap gap-1">${item.sourceFields.map(s=>`<span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">${s}</span>`).join('')}</div></div>`;
+  }
+  html += '</div>';
+  document.getElementById('drawerContent').innerHTML = html;
+  document.getElementById('assetDrawer').classList.remove('translate-x-full');
+}
+
+function closeDrawer() {
+  document.getElementById('assetDrawer').classList.add('translate-x-full');
+}
+
+// ==================== LINEAGE ====================
+function renderLineage() {
+  const svg = document.getElementById('lineageSvg');
+  const cols = [
+    {x:20,w:140,label:'Source Systems',color:'#DBEAFE',border:'#93C5FD',items:[
+      {y:60,h:50,text:'MS Dynamics 365',sub:'CRM'},
+      {y:170,h:50,text:'SAP ECC',sub:'ERP'},
+      {y:280,h:50,text:'HubSpot',sub:'Marketing'},
+      {y:390,h:50,text:'D2C Ecommerce',sub:'Commerce'}
+    ]},
+    {x:210,w:140,label:'IngestAPI',color:'#DCFCE7',border:'#86EFAC',items:[
+      {y:40,h:40,text:'Dynamics 365',sub:'Connection'},
+      {y:130,h:40,text:'SAP',sub:'Connection'},
+      {y:230,h:40,text:'HubSpot',sub:'Connection'},
+      {y:330,h:40,text:'Ecommerce',sub:'Connection'}
+    ]},
+    {x:400,w:150,label:'Data Model (DMOs)',color:'#F3E8FF',border:'#D8B4FE',items:[
+      {y:20,h:34,text:'Account',sub:'2,001'},
+      {y:64,h:34,text:'Individual',sub:'10,000'},
+      {y:108,h:34,text:'CP Email',sub:'10,000'},
+      {y:152,h:34,text:'CP Phone',sub:'10,000'},
+      {y:196,h:34,text:'CP Address',sub:'7,000'},
+      {y:250,h:34,text:'Purchase Order',sub:'25,000'},
+      {y:304,h:34,text:'Engagement',sub:'25,000'},
+      {y:358,h:34,text:'D2C Order',sub:'10,000'},
+      {y:412,h:34,text:'Influencer',sub:'—'}
+    ]},
+    {x:600,w:130,label:'IDR',color:'#FEF3C7',border:'#FCD34D',items:[
+      {y:60,h:60,text:'B2B Account',sub:'hb2b · Exact Name'},
+      {y:180,h:60,text:'Individual',sub:'hwth · Email+Phone'},
+      {y:310,h:60,text:'D2C Individual',sub:'hd2c · Email+Phone'}
+    ]},
+    {x:780,w:130,label:'Unified',color:'#FFEDD5',border:'#FDBA74',items:[
+      {y:60,h:55,text:'Unified Account',sub:'1,325 · 34% consol.'},
+      {y:180,h:55,text:'Unified Individual',sub:'9,493 · 5% consol.'},
+      {y:310,h:55,text:'Unified D2C',sub:'9,493 · 5% consol.'}
+    ]},
+    {x:960,w:130,label:'Analytics (CIs)',color:'#CCFBF1',border:'#5EEAD4',items:[
+      {y:60,h:50,text:'Acct Revenue',sub:'2,001 rows'},
+      {y:170,h:50,text:'Engagement Score',sub:'4,792 rows'},
+      {y:300,h:50,text:'D2C LTV',sub:'10,000 rows'}
+    ]},
+    {x:1140,w:140,label:'Audiences',color:'#FFE4E6',border:'#FDA4AF',items:[
+      {y:20,h:30,text:'Healthcare Targets',sub:'374'},
+      {y:60,h:30,text:'High-Value Accts',sub:'1,196'},
+      {y:100,h:30,text:'Growth Trajectory',sub:'1,318'},
+      {y:140,h:30,text:'Education',sub:'266'},
+      {y:180,h:30,text:'Dealer Network',sub:'412'},
+      {y:220,h:30,text:'SW Region',sub:'0'},
+      {y:260,h:30,text:'Trade Show',sub:'0'},
+      {y:300,h:30,text:'Win-Back',sub:'18'},
+      {y:340,h:30,text:'Active D2C',sub:'—'},
+      {y:380,h:30,text:'D2C High Spend',sub:'—'},
+      {y:420,h:30,text:'HC Renewal Tiers',sub:'Waterfall'},
+      {y:460,h:30,text:'D2C Recency',sub:'Waterfall'}
+    ]}
+  ];
+
+  let svgContent = '';
+  // Column headers
+  cols.forEach(col => {
+    svgContent += `<text x="${col.x + col.w/2}" y="14" text-anchor="middle" fill="#1B365D" font-size="11" font-weight="600">${col.label}</text>`;
+  });
+
+  // Nodes
+  cols.forEach(col => {
+    col.items.forEach(item => {
+      svgContent += `<g class="lineage-node" style="cursor:pointer">
+        <rect x="${col.x}" y="${item.y+20}" width="${col.w}" height="${item.h}" rx="6" fill="${col.color}" stroke="${col.border}" stroke-width="1.5"/>
+        <text x="${col.x+col.w/2}" y="${item.y+20+item.h/2-4}" text-anchor="middle" fill="#1B365D" font-size="10" font-weight="500">${item.text}</text>
+        <text x="${col.x+col.w/2}" y="${item.y+20+item.h/2+9}" text-anchor="middle" fill="#64748B" font-size="8">${item.sub}</text>
+      </g>`;
+    });
+  });
+
+  // Arrows: Source → IngestAPI
+  const srcToIngest = [[85,195],[170,305],[280,415],[390,525]];
+  // Instead, let's draw connection lines between stages
+  function arrow(x1,y1,x2,y2) {
+    const midX = (x1+x2)/2;
+    return `<path d="M${x1},${y1} C${midX},${y1} ${midX},${y2} ${x2},${y2}" fill="none" stroke="#94A3B8" stroke-width="1.5" class="lineage-arrow" marker-end="url(#arrowhead)"/>`;
+  }
+  svgContent += `<defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#94A3B8"/></marker></defs>`;
+
+  // Source → Ingest
+  svgContent += arrow(160,105,210,80);  // Dynamics → conn
+  svgContent += arrow(160,215,210,170); // SAP → conn
+  svgContent += arrow(160,325,210,270); // HubSpot → conn
+  svgContent += arrow(160,435,210,370); // Ecom → conn
+
+  // Ingest → DMOs (fan out)
+  // Dynamics conn → Account, Individual, CPE, CPP, CPA
+  [57,101,145,189,233].forEach(y => svgContent += arrow(350,80,400,y));
+  // SAP → PurchaseOrder
+  svgContent += arrow(350,170,400,287);
+  // HubSpot → Engagement, Influencer
+  svgContent += arrow(350,270,400,341);
+  svgContent += arrow(350,270,400,449);
+  // Ecom → Individual(again), D2C Order
+  svgContent += arrow(350,370,400,101);
+  svgContent += arrow(350,370,400,395);
+
+  // DMOs → IDR
+  // Account → B2B IDR
+  svgContent += arrow(550,57,600,110);
+  // Individual, CPE, CPP, CPA → Individual IDR
+  [101,145,189,233].forEach(y => svgContent += arrow(550,y,600,230));
+  // Individual, CPE, CPP, CPA → D2C IDR
+  [101,145,189,233].forEach(y => svgContent += arrow(550,y,600,360));
+
+  // IDR → Unified
+  svgContent += arrow(730,110,780,107); // B2B → Unified Acct
+  svgContent += arrow(730,230,780,227); // hwth → Unified Ind
+  svgContent += arrow(730,360,780,357); // hd2c → Unified D2C
+
+  // Unified + DMOs → CIs
+  svgContent += arrow(910,107,960,105); // Unified Acct → Revenue CI
+  svgContent += arrow(550,287,960,105); // PO → Revenue CI (short path)
+  svgContent += arrow(910,227,960,215); // Unified Ind → Engagement CI
+  svgContent += arrow(550,341,960,215); // Engagement DMO → Engagement CI
+  svgContent += arrow(910,357,960,345); // Unified D2C → LTV CI
+  svgContent += arrow(550,395,960,345); // D2C Order → LTV CI
+
+  // CIs/Unified → Segments
+  // Revenue CI → segments
+  [40,80,120,200,320].forEach(y => svgContent += arrow(1090,105,1140,y));
+  // Engagement CI → segments
+  [160,280].forEach(y => svgContent += arrow(1090,215,1140,y));
+  // Unified Acct → segments
+  [40,80,120,160,200,240].forEach(y => svgContent += arrow(910,107,1140,y));
+  // D2C → D2C segments
+  [360,400,480].forEach(y => svgContent += arrow(1090,345,1140,y));
+  // Waterfall
+  svgContent += arrow(1090,105,1140,440);
+
+  svg.innerHTML = svgContent;
+}
+
+// ==================== GLOSSARY ====================
+function renderGlossary(filter='') {
+  const grid = document.getElementById('glossaryGrid');
+  const filtered = filter ? glossaryTerms.filter(t =>
+    t.term.toLowerCase().includes(filter) || t.definition.toLowerCase().includes(filter) || t.technical.toLowerCase().includes(filter)
+  ) : glossaryTerms;
+
+  grid.innerHTML = filtered.map(t => {
+    const domainColor = t.domain === 'B2B' ? 'bg-blue-50 text-blue-700' : t.domain === 'D2C' ? 'bg-purple-50 text-purple-700' : t.domain === 'B2B / D2C' ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-600';
+    return `<div class="glossary-card bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-all">
+      <div class="flex items-start justify-between mb-2">
+        <h3 class="font-semibold text-collibra">${t.term}</h3>
+        <span class="text-[10px] px-2 py-0.5 rounded-full ${domainColor} font-medium shrink-0 ml-2">${t.domain}</span>
+      </div>
+      <p class="text-sm text-gray-600 leading-relaxed mb-3">${t.definition}</p>
+      <div class="flex items-center justify-between text-xs">
+        <code class="bg-gray-50 text-gray-500 px-2 py-1 rounded text-[10px] max-w-[250px] truncate">${t.technical}</code>
+        <span class="text-gray-400">Owner: ${t.owner}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterGlossary(val) { renderGlossary(val.toLowerCase()); }
+
+// ==================== GOVERNANCE ====================
+function renderGovernance() {
+  // Quality bars
+  const qualityAssets = catalogData.filter(i => i.quality > 0 && i.category !== 'source').slice(0, 10);
+  document.getElementById('qualityBars').innerHTML = qualityAssets.map(a => {
+    const color = a.quality >= 95 ? 'bg-success' : a.quality >= 85 ? 'bg-collibra-accent' : 'bg-warning';
+    return `<div class="flex items-center gap-3">
+      <span class="w-40 text-xs text-gray-600 truncate" title="${a.name}">${a.name}</span>
+      <div class="flex-1 bg-gray-100 rounded-full h-4">
+        <div class="${color} rounded-full h-4 quality-bar flex items-center justify-end pr-2 text-[10px] text-white font-medium" style="width:${a.quality}%">${a.quality}%</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Stewardship
+  const stewards = {};
+  catalogData.forEach(a => { if(!stewards[a.steward]) stewards[a.steward] = []; stewards[a.steward].push(a.name); });
+  document.getElementById('stewardshipList').innerHTML = Object.entries(stewards).map(([name, assets]) => {
+    const initials = name.split(' ').map(n=>n[0]).join('');
+    const colors = ['bg-blue-500','bg-emerald-500','bg-purple-500','bg-amber-500'];
+    const color = colors[name.length % colors.length];
+    return `<div class="flex items-start gap-3 py-2">
+      <div class="w-8 h-8 rounded-full ${color} text-white flex items-center justify-center text-xs font-bold shrink-0">${initials}</div>
+      <div class="flex-1 min-w-0">
+        <div class="font-medium text-sm">${name}</div>
+        <div class="text-xs text-gray-400 mt-0.5">${assets.length} assets: ${assets.slice(0,3).join(', ')}${assets.length>3 ? '...' : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ==================== SEARCH ====================
+function handleGlobalSearch(query) {
+  const panel = document.getElementById('searchResults');
+  if (!query || query.length < 2) { panel.classList.add('hidden'); return; }
+  const q = query.toLowerCase();
+  const results = [];
+  catalogData.forEach(a => { if(a.name.toLowerCase().includes(q) || (a.description||'').toLowerCase().includes(q)) results.push({type:'Asset',name:a.name,sub:a.domain,id:a.id}); });
+  glossaryTerms.forEach(t => { if(t.term.toLowerCase().includes(q) || t.definition.toLowerCase().includes(q)) results.push({type:'Term',name:t.term,sub:t.domain}); });
+  segmentData.forEach(s => { if(s.name.toLowerCase().includes(q)) results.push({type:'Segment',name:s.name,sub:s.segmentOn}); });
+
+  if (results.length === 0) { panel.innerHTML = '<div class="p-4 text-sm text-gray-400">No results found</div>'; }
+  else {
+    panel.innerHTML = results.slice(0,10).map(r => `<div class="px-4 py-2 hover:bg-collibra-surface cursor-pointer border-b border-gray-100" onclick="${r.id ? `openDrawer('${r.id}');document.getElementById('searchResults').classList.add('hidden')` : ''}">
+      <div class="flex items-center gap-2"><span class="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-500">${r.type}</span><span class="text-sm font-medium">${r.name}</span></div>
+      <div class="text-xs text-gray-400 ml-8">${r.sub}</div>
+    </div>`).join('');
+  }
+  panel.classList.remove('hidden');
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#globalSearch') && !e.target.closest('#searchResults')) {
+    document.getElementById('searchResults').classList.add('hidden');
+  }
+});
+
+// ==================== TABS ====================
+function showTab(tab) {
+  ['catalog','lineage','glossary','governance'].forEach(t => {
+    document.getElementById('panel-'+t).classList.toggle('hidden', t !== tab);
+    const btn = document.getElementById('tab-'+t);
+    if (t === tab) { btn.classList.add('tab-active'); btn.classList.remove('text-gray-500'); }
+    else { btn.classList.remove('tab-active'); btn.classList.add('text-gray-500'); }
+  });
+  if (tab === 'lineage') renderLineage();
+}
+
+// ==================== INIT ====================
+renderCatalog();
+renderGlossary();
+renderGovernance();
+</script>
+</body>
+</html>

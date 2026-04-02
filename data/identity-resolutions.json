@@ -1,0 +1,247 @@
+{
+  "identityResolutions": [
+    {
+      "anonymousUnifiedProfiles": 0,
+      "configurationType": "individual",
+      "consolidationRate": 5,
+      "dataSpaceName": "default",
+      "description": "Unifies contacts, D2C customers, and influencers across sources using exact email and phone matching",
+      "doesRunAutomatically": false,
+      "id": "1irKh0000008OVvIAM",
+      "isCaseSensitive": true,
+      "knownUnifiedProfiles": 9493,
+      "label": "Haworth Individual Identity Resolution",
+      "lastJobCompleted": "2026-04-02T06:04:09.000Z",
+      "lastJobStatus": "SUCCESS",
+      "matchRules": [
+        {
+          "criteria": [
+            {
+              "caseSensitiveMatch": false,
+              "entityName": "ssot__ContactPointEmail__dlm",
+              "fieldName": "ssot__EmailAddress__c",
+              "matchMethodType": "exact",
+              "shouldMatchOnBlank": false
+            }
+          ],
+          "label": "Exact Email Match"
+        },
+        {
+          "criteria": [
+            {
+              "caseSensitiveMatch": false,
+              "entityName": "ssot__ContactPointPhone__dlm",
+              "fieldName": "ssot__FormattedE164PhoneNumber__c",
+              "matchMethodType": "exact",
+              "shouldMatchOnBlank": false
+            }
+          ],
+          "label": "Exact Phone Match"
+        }
+      ],
+      "matchedSourceProfiles": 1013,
+      "objectApiName": "Individual_hwth",
+      "reconciliationRules": [
+        {
+          "entityName": "ssot__Individual__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotIndividualHwth__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotIndividualHwth__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointEmail__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointEmailHwth__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointEmailHwth__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointPhone__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointPhoneHwth__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointPhoneHwth__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointAddress__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointAddressHwth__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointAddressHwth__dlm"
+        }
+      ],
+      "rulesetId": "hwth",
+      "rulesetStatus": "PUBLISHED",
+      "secondaryDmo": "ssot__Individual__dlm",
+      "sourceProfiles": 10000,
+      "totalUnifiedProfiles": 9493
+    },
+    {
+      "anonymousUnifiedProfiles": 0,
+      "configurationType": "account",
+      "consolidationRate": 34,
+      "dataSpaceName": "default",
+      "description": "Unifies B2B accounts across Dynamics 365 and SAP sources using account name matching",
+      "doesRunAutomatically": false,
+      "id": "1irKh0000008OW0IAM",
+      "isCaseSensitive": true,
+      "knownUnifiedProfiles": 1325,
+      "label": "Haworth B2B Account Resolution",
+      "lastJobCompleted": "2026-04-02T15:08:05.000Z",
+      "lastJobStatus": "SUCCESS",
+      "matchRules": [
+        {
+          "criteria": [
+            {
+              "caseSensitiveMatch": false,
+              "entityName": "ssot__Account__dlm",
+              "fieldName": "ssot__Name__c",
+              "matchMethodType": "exact",
+              "shouldMatchOnBlank": false
+            }
+          ],
+          "label": "Exact Account Name Match"
+        }
+      ],
+      "matchedSourceProfiles": 1166,
+      "objectApiName": "Account_hb2b",
+      "reconciliationRules": [
+        {
+          "entityName": "ssot__Account__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotAccountHb2b__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotAccountHb2b__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointEmail__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointEmailHb2b__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointEmailHb2b__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointPhone__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointPhoneHb2b__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointPhoneHb2b__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointAddress__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointAddressHb2b__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointAddressHb2b__dlm"
+        }
+      ],
+      "rulesetId": "hb2b",
+      "rulesetStatus": "PUBLISHED",
+      "secondaryDmo": "ssot__Account__dlm",
+      "sourceProfiles": 2001,
+      "totalUnifiedProfiles": 1325
+    },
+    {
+      "anonymousUnifiedProfiles": 0,
+      "configurationType": "individual",
+      "consolidationRate": 5,
+      "dataSpaceName": "default",
+      "description": "Unifies D2C customers using exact email and phone matching",
+      "doesRunAutomatically": false,
+      "id": "1irKh0000008OW5IAM",
+      "isCaseSensitive": true,
+      "knownUnifiedProfiles": 9493,
+      "label": "Haworth D2C Individual Resolution",
+      "lastJobCompleted": "2026-04-02T15:08:34.000Z",
+      "lastJobStatus": "SUCCESS",
+      "matchRules": [
+        {
+          "criteria": [
+            {
+              "caseSensitiveMatch": false,
+              "entityName": "ssot__ContactPointEmail__dlm",
+              "fieldName": "ssot__EmailAddress__c",
+              "matchMethodType": "exact",
+              "shouldMatchOnBlank": false
+            }
+          ],
+          "label": "Exact Email Match"
+        },
+        {
+          "criteria": [
+            {
+              "caseSensitiveMatch": false,
+              "entityName": "ssot__ContactPointPhone__dlm",
+              "fieldName": "ssot__FormattedE164PhoneNumber__c",
+              "matchMethodType": "exact",
+              "shouldMatchOnBlank": false
+            }
+          ],
+          "label": "Exact Phone Match"
+        }
+      ],
+      "matchedSourceProfiles": 1013,
+      "objectApiName": "Individual_hd2c",
+      "reconciliationRules": [
+        {
+          "entityName": "ssot__Individual__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotIndividualHd2c__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotIndividualHd2c__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointEmail__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointEmailHd2c__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointEmailHd2c__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointPhone__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointPhoneHd2c__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointPhoneHd2c__dlm"
+        },
+        {
+          "entityName": "ssot__ContactPointAddress__dlm",
+          "fields": [],
+          "linkDmoName": "UnifiedLinkssotContactPointAddressHd2c__dlm",
+          "ruleType": "mostfrequent",
+          "shouldIgnoreEmptyValue": true,
+          "sources": [],
+          "unifiedDmoName": "UnifiedssotContactPointAddressHd2c__dlm"
+        }
+      ],
+      "rulesetId": "hd2c",
+      "rulesetStatus": "PUBLISHED",
+      "secondaryDmo": "ssot__Individual__dlm",
+      "sourceProfiles": 10000,
+      "totalUnifiedProfiles": 9493
+    }
+  ]
+}

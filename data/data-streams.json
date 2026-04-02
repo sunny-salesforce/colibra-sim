@@ -1,0 +1,3095 @@
+{
+  "currentPageUrl": "/services/data/v65.0/ssot/data-streams?limit=10&offset=1",
+  "dataStreams": [
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorDetails": {
+          "name": "SalesforceDotCom_Home",
+          "sourceObject": "CurrencyType",
+          "type": "SalesforceDotCom"
+        },
+        "connectorType": "SalesforceDotCom"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Other",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_Id",
+            "name": "KQ_Id"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Corporate Currency",
+            "name": "IsCorporate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "SfdcOrganizationId",
+            "name": "SfdcOrganizationId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "Created Date",
+            "name": "CreatedDate"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "Conversion Rate",
+            "name": "ConversionRate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Created By ID",
+            "name": "CreatedById"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "Currency Type ID",
+            "name": "Id"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "Decimal Places",
+            "name": "DecimalPlaces"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Last Modified By ID",
+            "name": "LastModifiedById"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Active",
+            "name": "IsActive"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Currency ISO Code",
+            "name": "IsoCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "Last Modified Date",
+            "name": "LastModifiedDate"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "System Modstamp",
+            "name": "SystemModstamp"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_Id",
+            "name": "KQ_Id"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Corporate Currency",
+            "name": "IsCorporate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "SfdcOrganizationId",
+            "name": "SfdcOrganizationId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "Created Date",
+            "name": "CreatedDate"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "Conversion Rate",
+            "name": "ConversionRate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Created By ID",
+            "name": "CreatedById"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "Currency Type ID",
+            "name": "Id"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "Decimal Places",
+            "name": "DecimalPlaces"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Last Modified By ID",
+            "name": "LastModifiedById"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Active",
+            "name": "IsActive"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Currency ISO Code",
+            "name": "IsoCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "Last Modified Date",
+            "name": "LastModifiedDate"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "System Modstamp",
+            "name": "SystemModstamp"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "id": "0gOKh000000PC3zMAG",
+        "label": "CurrencyType_Home",
+        "name": "CurrencyType_Home__dll",
+        "recordModifiedFieldName": "SystemModstamp",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Salesforce_Home",
+      "dataStreamType": "SFDC",
+      "isEnabled": true,
+      "label": "CurrencyType_Home",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T19:35:16.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "CurrencyType_Home",
+      "recordId": "1dsKh000000L0E2IAK",
+      "refreshConfig": {
+        "frequency": {
+          "frequencyType": "BATCH",
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "fullRefreshIntervalDays": "NONE",
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "Text",
+          "name": "Id"
+        },
+        {
+          "datatype": "Text",
+          "name": "IsoCode"
+        },
+        {
+          "datatype": "Number",
+          "name": "ConversionRate"
+        },
+        {
+          "datatype": "Number",
+          "name": "DecimalPlaces"
+        },
+        {
+          "datatype": "Text",
+          "name": "IsActive"
+        },
+        {
+          "datatype": "Text",
+          "name": "IsCorporate"
+        },
+        {
+          "datatype": "DateTime",
+          "format": "yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;",
+          "name": "CreatedDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "CreatedById"
+        },
+        {
+          "datatype": "DateTime",
+          "format": "yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;",
+          "name": "LastModifiedDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "LastModifiedById"
+        },
+        {
+          "datatype": "DateTime",
+          "format": "yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;",
+          "name": "SystemModstamp"
+        },
+        {
+          "datatype": "Text",
+          "name": "SfdcOrganizationId"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 1
+    },
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorDetails": {
+          "name": "SalesforceDotCom_Home",
+          "sourceObject": "DataKnowledgeSrcFileRef",
+          "type": "SalesforceDotCom"
+        },
+        "connectorType": "SalesforceDotCom"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Other",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_Id",
+            "name": "KQ_Id"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "SystemModstamp",
+            "name": "SystemModstamp"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "DataKnowledgeLibrary",
+            "name": "DataKnowledgeLibraryId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Name",
+            "name": "Name"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FilePath",
+            "name": "FilePath"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "LastModifiedDate",
+            "name": "LastModifiedDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Owner",
+            "name": "OwnerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FileName",
+            "name": "FileName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CurrencyIsoCode",
+            "name": "CurrencyIsoCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "IsLocked",
+            "name": "IsLocked"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "Id",
+            "name": "Id"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "IsDeleted",
+            "name": "IsDeleted"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "DataKnowledgeSource",
+            "name": "DataKnowledgeSourceId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FileType",
+            "name": "FileType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "LastModifiedBy",
+            "name": "LastModifiedById"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CreatedBy",
+            "name": "CreatedById"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "SourceFileStatus",
+            "name": "SourceFileStatus"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedDate",
+            "name": "CreatedDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "SfdcOrganizationId",
+            "name": "SfdcOrganizationId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_Id",
+            "name": "KQ_Id"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "SystemModstamp",
+            "name": "SystemModstamp"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "DataKnowledgeLibrary",
+            "name": "DataKnowledgeLibraryId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Name",
+            "name": "Name"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FilePath",
+            "name": "FilePath"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "LastModifiedDate",
+            "name": "LastModifiedDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Owner",
+            "name": "OwnerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FileName",
+            "name": "FileName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CurrencyIsoCode",
+            "name": "CurrencyIsoCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "IsLocked",
+            "name": "IsLocked"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "Id",
+            "name": "Id"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "IsDeleted",
+            "name": "IsDeleted"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "DataKnowledgeSource",
+            "name": "DataKnowledgeSourceId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FileType",
+            "name": "FileType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "LastModifiedBy",
+            "name": "LastModifiedById"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CreatedBy",
+            "name": "CreatedById"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "SourceFileStatus",
+            "name": "SourceFileStatus"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedDate",
+            "name": "CreatedDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "SfdcOrganizationId",
+            "name": "SfdcOrganizationId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "id": "0gOKh000000PC3LMAW",
+        "label": "DataKnowledgeSrcFileRef_Home",
+        "name": "DataKnowledgeSrcFileRef_Home__dll",
+        "recordModifiedFieldName": "SystemModstamp",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Salesforce_Home",
+      "dataStreamType": "SFDC_PACKAGE_KIT",
+      "isEnabled": true,
+      "label": "DataKnowledgeSrcFileRef_Home",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T19:35:16.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "DataKnowledgeSrcFileRef_Home",
+      "recordId": "1dsKh000000L0DOIA0",
+      "refreshConfig": {
+        "frequency": {
+          "frequencyType": "BATCH",
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "fullRefreshIntervalDays": "NONE",
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "Text",
+          "name": "CreatedById"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "SystemModstamp"
+        },
+        {
+          "datatype": "Text",
+          "name": "CurrencyIsoCode"
+        },
+        {
+          "datatype": "Text",
+          "name": "DataKnowledgeLibraryId"
+        },
+        {
+          "datatype": "Text",
+          "name": "DataKnowledgeSourceId"
+        },
+        {
+          "datatype": "Text",
+          "name": "FileName"
+        },
+        {
+          "datatype": "Text",
+          "name": "FilePath"
+        },
+        {
+          "datatype": "Text",
+          "name": "FileType"
+        },
+        {
+          "datatype": "Text",
+          "name": "Id"
+        },
+        {
+          "datatype": "Text",
+          "name": "IsDeleted"
+        },
+        {
+          "datatype": "Text",
+          "name": "IsLocked"
+        },
+        {
+          "datatype": "Text",
+          "name": "LastModifiedById"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "LastModifiedDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "Name"
+        },
+        {
+          "datatype": "Text",
+          "name": "OwnerId"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "CreatedDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "SourceFileStatus"
+        },
+        {
+          "datatype": "Text",
+          "name": "SfdcOrganizationId"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 0
+    },
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorType": "IngestApi"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Profile",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_AccountId",
+            "name": "KQ_AccountId"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "EmployeeCount",
+            "name": "EmployeeCount"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AccountType",
+            "name": "AccountType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingStreet",
+            "name": "BillingStreet"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingState",
+            "name": "BillingState"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "InstallDate",
+            "name": "InstallDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "GrowthTrajectory",
+            "name": "GrowthTrajectory"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "AnnualRevenue",
+            "name": "AnnualRevenue"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Region",
+            "name": "Region"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ParentAccountId",
+            "name": "ParentAccountId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "RenewalDate",
+            "name": "RenewalDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingPostalCode",
+            "name": "BillingPostalCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingCountry",
+            "name": "BillingCountry"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "DealerCode",
+            "name": "DealerCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "AccountId",
+            "name": "AccountId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingCity",
+            "name": "BillingCity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Territory",
+            "name": "Territory"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AccountName",
+            "name": "AccountName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "SubIndustry",
+            "name": "SubIndustry"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Industry",
+            "name": "Industry"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_ParentAccountId",
+            "name": "KQ_ParentAccountId"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_AccountId",
+            "name": "KQ_AccountId"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "EmployeeCount",
+            "name": "EmployeeCount"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AccountType",
+            "name": "AccountType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingStreet",
+            "name": "BillingStreet"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingState",
+            "name": "BillingState"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "InstallDate",
+            "name": "InstallDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "GrowthTrajectory",
+            "name": "GrowthTrajectory"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "AnnualRevenue",
+            "name": "AnnualRevenue"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Region",
+            "name": "Region"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ParentAccountId",
+            "name": "ParentAccountId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "RenewalDate",
+            "name": "RenewalDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingPostalCode",
+            "name": "BillingPostalCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingCountry",
+            "name": "BillingCountry"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "DealerCode",
+            "name": "DealerCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "AccountId",
+            "name": "AccountId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingCity",
+            "name": "BillingCity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Territory",
+            "name": "Territory"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AccountName",
+            "name": "AccountName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "SubIndustry",
+            "name": "SubIndustry"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Industry",
+            "name": "Industry"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_ParentAccountId",
+            "name": "KQ_ParentAccountId"
+          }
+        ],
+        "id": "0gOKh000000PC3QMAW",
+        "label": "Haworth B2B Accounts",
+        "name": "Haworth_B2B_Accounts_HaworthB2B_4CA7A3EC__dll",
+        "recordModifiedFieldName": "CreatedAt",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Haworth_Dynamics_365_ab345ea8_0603_4f7b_8f19_fa8da7f9dc02",
+      "dataStreamType": "INGESTAPI",
+      "isEnabled": true,
+      "label": "Haworth_B2B_Accounts-HaworthB2BAccount",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T05:57:56.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "Haworth_B2B_Accounts_HaworthB2BAccount_4CA7A3EC",
+      "problemRecordDataLakeObjectName": "PR_Haworth_B2B_Accounts_HaworthB2BAccoun__dll",
+      "recordId": "1dsKh000000L0DTIA0",
+      "refreshConfig": {
+        "frequency": {
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "Text",
+          "name": "AccountId"
+        },
+        {
+          "datatype": "Text",
+          "name": "Territory"
+        },
+        {
+          "datatype": "Text",
+          "name": "AccountType"
+        },
+        {
+          "datatype": "Number",
+          "name": "AnnualRevenue"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingCity"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingCountry"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingPostalCode"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingState"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingStreet"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "CreatedAt"
+        },
+        {
+          "datatype": "Text",
+          "name": "DealerCode"
+        },
+        {
+          "datatype": "Number",
+          "name": "EmployeeCount"
+        },
+        {
+          "datatype": "Text",
+          "name": "GrowthTrajectory"
+        },
+        {
+          "datatype": "Text",
+          "name": "Industry"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "InstallDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "ParentAccountId"
+        },
+        {
+          "datatype": "Text",
+          "name": "Region"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "RenewalDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "SubIndustry"
+        },
+        {
+          "datatype": "Text",
+          "name": "AccountName"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 2001
+    },
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorType": "IngestApi"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Profile",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_ContactId",
+            "name": "KQ_ContactId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Phone",
+            "name": "Phone"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingState",
+            "name": "BillingState"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "TradeShowAttendee",
+            "name": "TradeShowAttendee"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Title",
+            "name": "Title"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "ContactId",
+            "name": "ContactId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingStreet",
+            "name": "BillingStreet"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingCity",
+            "name": "BillingCity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Email",
+            "name": "Email"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "PreferredChannel",
+            "name": "PreferredChannel"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AccountId",
+            "name": "AccountId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FirstName",
+            "name": "FirstName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingCountry",
+            "name": "BillingCountry"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "LastName",
+            "name": "LastName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Department",
+            "name": "Department"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingPostalCode",
+            "name": "BillingPostalCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ContactType",
+            "name": "ContactType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_ContactId",
+            "name": "KQ_ContactId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Phone",
+            "name": "Phone"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingState",
+            "name": "BillingState"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "TradeShowAttendee",
+            "name": "TradeShowAttendee"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Title",
+            "name": "Title"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "ContactId",
+            "name": "ContactId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingStreet",
+            "name": "BillingStreet"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingCity",
+            "name": "BillingCity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Email",
+            "name": "Email"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "PreferredChannel",
+            "name": "PreferredChannel"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AccountId",
+            "name": "AccountId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FirstName",
+            "name": "FirstName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingCountry",
+            "name": "BillingCountry"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "LastName",
+            "name": "LastName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Department",
+            "name": "Department"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "BillingPostalCode",
+            "name": "BillingPostalCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ContactType",
+            "name": "ContactType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "id": "0gOKh000000PC3VMAW",
+        "label": "Haworth B2B Contacts",
+        "name": "Haworth_B2B_Contacts_HaworthB2B_4CA7E4E9__dll",
+        "recordModifiedFieldName": "CreatedAt",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Haworth_Dynamics_365_ab345ea8_0603_4f7b_8f19_fa8da7f9dc02",
+      "dataStreamType": "INGESTAPI",
+      "isEnabled": true,
+      "label": "Haworth_B2B_Contacts-HaworthB2BContact",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T05:58:14.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "Haworth_B2B_Contacts_HaworthB2BContact_4CA7E4E9",
+      "problemRecordDataLakeObjectName": "PR_Haworth_B2B_Contacts_HaworthB2BContac__dll",
+      "recordId": "1dsKh000000L0DYIA0",
+      "refreshConfig": {
+        "frequency": {
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "Text",
+          "name": "AccountId"
+        },
+        {
+          "datatype": "Text",
+          "name": "TradeShowAttendee"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingCountry"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingPostalCode"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingState"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingStreet"
+        },
+        {
+          "datatype": "Text",
+          "name": "ContactId"
+        },
+        {
+          "datatype": "Text",
+          "name": "ContactType"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "CreatedAt"
+        },
+        {
+          "datatype": "Text",
+          "name": "Department"
+        },
+        {
+          "datatype": "Text",
+          "name": "Email"
+        },
+        {
+          "datatype": "Text",
+          "name": "FirstName"
+        },
+        {
+          "datatype": "Text",
+          "name": "LastName"
+        },
+        {
+          "datatype": "Text",
+          "name": "Phone"
+        },
+        {
+          "datatype": "Text",
+          "name": "PreferredChannel"
+        },
+        {
+          "datatype": "Text",
+          "name": "Title"
+        },
+        {
+          "datatype": "Text",
+          "name": "BillingCity"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 5000
+    },
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorType": "IngestApi"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Other",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_EngagementId",
+            "name": "KQ_EngagementId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "EngagementDate",
+            "name": "EngagementDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InfluencerId",
+            "name": "InfluencerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Channel",
+            "name": "Channel"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ContentTopic",
+            "name": "ContentTopic"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "EngagementType",
+            "name": "EngagementType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "EngagementId",
+            "name": "EngagementId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CampaignName",
+            "name": "CampaignName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ResponseType",
+            "name": "ResponseType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "TradeShow",
+            "name": "TradeShow"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ContactId",
+            "name": "ContactId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_EngagementId",
+            "name": "KQ_EngagementId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "EngagementDate",
+            "name": "EngagementDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InfluencerId",
+            "name": "InfluencerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Channel",
+            "name": "Channel"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ContentTopic",
+            "name": "ContentTopic"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "EngagementType",
+            "name": "EngagementType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "EngagementId",
+            "name": "EngagementId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CampaignName",
+            "name": "CampaignName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ResponseType",
+            "name": "ResponseType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "TradeShow",
+            "name": "TradeShow"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ContactId",
+            "name": "ContactId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "id": "0gOKh000000PC3fMAG",
+        "label": "Haworth B2B Engagements",
+        "name": "Haworth_B2B_Engagements_Haworth_4CA86433__dll",
+        "recordModifiedFieldName": "CreatedAt",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Haworth_HubSpot_d6889fd9_b76d_4c22_bcdc_68d248599259",
+      "dataStreamType": "INGESTAPI",
+      "isEnabled": true,
+      "label": "Haworth_B2B_Engagements-HaworthB2BEngagement",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T05:59:06.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "Haworth_B2B_Engagements_HaworthB2BEngagement_4CA86433",
+      "problemRecordDataLakeObjectName": "PR_Haworth_B2B_Engagements_HaworthB2BEng__dll",
+      "recordId": "1dsKh000000L0DiIAK",
+      "refreshConfig": {
+        "frequency": {
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "Text",
+          "name": "CampaignName"
+        },
+        {
+          "datatype": "Text",
+          "name": "Channel"
+        },
+        {
+          "datatype": "Text",
+          "name": "ContactId"
+        },
+        {
+          "datatype": "Text",
+          "name": "ContentTopic"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "CreatedAt"
+        },
+        {
+          "datatype": "Text",
+          "name": "TradeShow"
+        },
+        {
+          "datatype": "Text",
+          "name": "EngagementId"
+        },
+        {
+          "datatype": "Text",
+          "name": "EngagementType"
+        },
+        {
+          "datatype": "Text",
+          "name": "InfluencerId"
+        },
+        {
+          "datatype": "Text",
+          "name": "ResponseType"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "EngagementDate"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 25000
+    },
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorType": "IngestApi"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Profile",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_CustomerId",
+            "name": "KQ_CustomerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "PostalCode",
+            "name": "PostalCode"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Street",
+            "name": "Street"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "State",
+            "name": "State"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AcquisitionChannel",
+            "name": "AcquisitionChannel"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "LastName",
+            "name": "LastName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "CustomerId",
+            "name": "CustomerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CustomerSegment",
+            "name": "CustomerSegment"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "City",
+            "name": "City"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Email",
+            "name": "Email"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FirstName",
+            "name": "FirstName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Country",
+            "name": "Country"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Phone",
+            "name": "Phone"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_CustomerId",
+            "name": "KQ_CustomerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "PostalCode",
+            "name": "PostalCode"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Street",
+            "name": "Street"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "State",
+            "name": "State"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AcquisitionChannel",
+            "name": "AcquisitionChannel"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "LastName",
+            "name": "LastName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "CustomerId",
+            "name": "CustomerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CustomerSegment",
+            "name": "CustomerSegment"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "City",
+            "name": "City"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Email",
+            "name": "Email"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FirstName",
+            "name": "FirstName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Country",
+            "name": "Country"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Phone",
+            "name": "Phone"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "id": "0gOKh000000PC3pMAG",
+        "label": "Haworth D2C Customers",
+        "name": "Haworth_D2C_Customers_HaworthD2_4CA921D7__dll",
+        "recordModifiedFieldName": "CreatedAt",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Haworth_Ecommerce_edb928c6_4da7_4272_9afc_ab5b7789ce74",
+      "dataStreamType": "INGESTAPI",
+      "isEnabled": true,
+      "label": "Haworth_D2C_Customers-HaworthD2CCustomer",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T05:59:32.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "Haworth_D2C_Customers_HaworthD2CCustomer_4CA921D7",
+      "problemRecordDataLakeObjectName": "PR_Haworth_D2C_Customers_HaworthD2CCusto__dll",
+      "recordId": "1dsKh000000L0DsIAK",
+      "refreshConfig": {
+        "frequency": {
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "Text",
+          "name": "AcquisitionChannel"
+        },
+        {
+          "datatype": "Text",
+          "name": "City"
+        },
+        {
+          "datatype": "Text",
+          "name": "Country"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "CreatedAt"
+        },
+        {
+          "datatype": "Text",
+          "name": "CustomerId"
+        },
+        {
+          "datatype": "Text",
+          "name": "CustomerSegment"
+        },
+        {
+          "datatype": "Text",
+          "name": "Street"
+        },
+        {
+          "datatype": "Text",
+          "name": "FirstName"
+        },
+        {
+          "datatype": "Text",
+          "name": "LastName"
+        },
+        {
+          "datatype": "Text",
+          "name": "Phone"
+        },
+        {
+          "datatype": "Text",
+          "name": "PostalCode"
+        },
+        {
+          "datatype": "Text",
+          "name": "State"
+        },
+        {
+          "datatype": "Text",
+          "name": "Email"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 2000
+    },
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorType": "IngestApi"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Other",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_OrderId",
+            "name": "KQ_OrderId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Currency",
+            "name": "Currency"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "Quantity",
+            "name": "Quantity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "OrderId",
+            "name": "OrderId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "OrderDate",
+            "name": "OrderDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CustomerId",
+            "name": "CustomerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "TotalAmount",
+            "name": "TotalAmount"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ProductName",
+            "name": "ProductName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ProductCategory",
+            "name": "ProductCategory"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ShippingMethod",
+            "name": "ShippingMethod"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Status",
+            "name": "Status"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_OrderId",
+            "name": "KQ_OrderId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Currency",
+            "name": "Currency"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "Quantity",
+            "name": "Quantity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "OrderId",
+            "name": "OrderId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "OrderDate",
+            "name": "OrderDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CustomerId",
+            "name": "CustomerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "TotalAmount",
+            "name": "TotalAmount"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ProductName",
+            "name": "ProductName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ProductCategory",
+            "name": "ProductCategory"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ShippingMethod",
+            "name": "ShippingMethod"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Status",
+            "name": "Status"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "id": "0gOKh000000PC3uMAG",
+        "label": "Haworth D2C Orders",
+        "name": "Haworth_D2C_Orders_HaworthD2COr_4CA95C6C__dll",
+        "recordModifiedFieldName": "CreatedAt",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Haworth_Ecommerce_edb928c6_4da7_4272_9afc_ab5b7789ce74",
+      "dataStreamType": "INGESTAPI",
+      "isEnabled": true,
+      "label": "Haworth_D2C_Orders-HaworthD2COrder",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T06:25:42.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "Haworth_D2C_Orders_HaworthD2COrder_4CA95C6C",
+      "problemRecordDataLakeObjectName": "PR_Haworth_D2C_Orders_HaworthD2COrder_4C__dll",
+      "recordId": "1dsKh000000L0DxIAK",
+      "refreshConfig": {
+        "frequency": {
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "DateTime",
+          "name": "CreatedAt"
+        },
+        {
+          "datatype": "Text",
+          "name": "Currency"
+        },
+        {
+          "datatype": "Text",
+          "name": "CustomerId"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "OrderDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "OrderId"
+        },
+        {
+          "datatype": "Number",
+          "name": "TotalAmount"
+        },
+        {
+          "datatype": "Text",
+          "name": "ProductName"
+        },
+        {
+          "datatype": "Number",
+          "name": "Quantity"
+        },
+        {
+          "datatype": "Text",
+          "name": "ShippingMethod"
+        },
+        {
+          "datatype": "Text",
+          "name": "Status"
+        },
+        {
+          "datatype": "Text",
+          "name": "ProductCategory"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 10000
+    },
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorType": "IngestApi"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Profile",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_InfluencerId",
+            "name": "KQ_InfluencerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "LastName",
+            "name": "LastName"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CertificationLevel",
+            "name": "CertificationLevel"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "City",
+            "name": "City"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "InfluencerId",
+            "name": "InfluencerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Phone",
+            "name": "Phone"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "PostalCode",
+            "name": "PostalCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Country",
+            "name": "Country"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "State",
+            "name": "State"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Specialty",
+            "name": "Specialty"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FirstName",
+            "name": "FirstName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Role",
+            "name": "Role"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CompanyName",
+            "name": "CompanyName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InfluencerType",
+            "name": "InfluencerType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Email",
+            "name": "Email"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "LastEngagementDate",
+            "name": "LastEngagementDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_InfluencerId",
+            "name": "KQ_InfluencerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "LastName",
+            "name": "LastName"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CertificationLevel",
+            "name": "CertificationLevel"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "City",
+            "name": "City"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "InfluencerId",
+            "name": "InfluencerId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Phone",
+            "name": "Phone"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "PostalCode",
+            "name": "PostalCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Country",
+            "name": "Country"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "State",
+            "name": "State"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Specialty",
+            "name": "Specialty"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "FirstName",
+            "name": "FirstName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Role",
+            "name": "Role"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "CompanyName",
+            "name": "CompanyName"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InfluencerType",
+            "name": "InfluencerType"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Email",
+            "name": "Email"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "LastEngagementDate",
+            "name": "LastEngagementDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "id": "0gOKh000000PC3aMAG",
+        "label": "Haworth Influencers",
+        "name": "Haworth_Influencers_HaworthInfl_4CA826CF__dll",
+        "recordModifiedFieldName": "CreatedAt",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Haworth_HubSpot_d6889fd9_b76d_4c22_bcdc_68d248599259",
+      "dataStreamType": "INGESTAPI",
+      "isEnabled": true,
+      "label": "Haworth_Influencers-HaworthInfluencer",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T05:58:36.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "Haworth_Influencers_HaworthInfluencer_4CA826CF",
+      "problemRecordDataLakeObjectName": "PR_Haworth_Influencers_HaworthInfluencer__dll",
+      "recordId": "1dsKh000000L0DdIAK",
+      "refreshConfig": {
+        "frequency": {
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "Text",
+          "name": "CertificationLevel"
+        },
+        {
+          "datatype": "Text",
+          "name": "State"
+        },
+        {
+          "datatype": "Text",
+          "name": "CompanyName"
+        },
+        {
+          "datatype": "Text",
+          "name": "Country"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "CreatedAt"
+        },
+        {
+          "datatype": "Text",
+          "name": "Email"
+        },
+        {
+          "datatype": "Text",
+          "name": "FirstName"
+        },
+        {
+          "datatype": "Text",
+          "name": "InfluencerId"
+        },
+        {
+          "datatype": "Text",
+          "name": "InfluencerType"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "LastEngagementDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "LastName"
+        },
+        {
+          "datatype": "Text",
+          "name": "Phone"
+        },
+        {
+          "datatype": "Text",
+          "name": "PostalCode"
+        },
+        {
+          "datatype": "Text",
+          "name": "Role"
+        },
+        {
+          "datatype": "Text",
+          "name": "Specialty"
+        },
+        {
+          "datatype": "Text",
+          "name": "City"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 3000
+    },
+    {
+      "advancedAttributes": {},
+      "capabilities": {},
+      "connectorInfo": {
+        "connectorType": "IngestApi"
+      },
+      "dataAccessMode": "INGEST",
+      "dataLakeObjectInfo": {
+        "capabilities": {},
+        "category": "Other",
+        "dataLakeFieldInfoRepresentation": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_OrderId",
+            "name": "KQ_OrderId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "OrderId",
+            "name": "OrderId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AccountId",
+            "name": "AccountId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InstallLocationCity",
+            "name": "InstallLocationCity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InstallLocationState",
+            "name": "InstallLocationState"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InstallLocationAddress",
+            "name": "InstallLocationAddress"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Currency",
+            "name": "Currency"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Status",
+            "name": "Status"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ProductCategory",
+            "name": "ProductCategory"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "TotalAmount",
+            "name": "TotalAmount"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "OrderDate",
+            "name": "OrderDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ProductLine",
+            "name": "ProductLine"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InstallLocationPostalCode",
+            "name": "InstallLocationPostalCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ContactId",
+            "name": "ContactId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "DeliveryDate",
+            "name": "DeliveryDate"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "Quantity",
+            "name": "Quantity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "dataSpaceInfo": [
+          {
+            "label": "default",
+            "name": "default"
+          }
+        ],
+        "fields": [
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "KQ_OrderId",
+            "name": "KQ_OrderId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source",
+            "name": "DataSource"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": true,
+            "label": "OrderId",
+            "name": "OrderId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "AccountId",
+            "name": "AccountId"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InstallLocationCity",
+            "name": "InstallLocationCity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InstallLocationState",
+            "name": "InstallLocationState"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InstallLocationAddress",
+            "name": "InstallLocationAddress"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Currency",
+            "name": "Currency"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Status",
+            "name": "Status"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ProductCategory",
+            "name": "ProductCategory"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "TotalAmount",
+            "name": "TotalAmount"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "CreatedAt",
+            "name": "CreatedAt"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "Data Source Object",
+            "name": "DataSourceObject"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "OrderDate",
+            "name": "OrderDate"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ProductLine",
+            "name": "ProductLine"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "InstallLocationPostalCode",
+            "name": "InstallLocationPostalCode"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "ContactId",
+            "name": "ContactId"
+          },
+          {
+            "dataType": "DateTime",
+            "isPrimaryKey": false,
+            "label": "DeliveryDate",
+            "name": "DeliveryDate"
+          },
+          {
+            "dataType": "Number",
+            "isPrimaryKey": false,
+            "label": "Quantity",
+            "name": "Quantity"
+          },
+          {
+            "dataType": "Text",
+            "isPrimaryKey": false,
+            "label": "cdp_sys_SourceVersion",
+            "name": "cdp_sys_SourceVersion"
+          }
+        ],
+        "id": "0gOKh000000PC3kMAG",
+        "label": "Haworth Purchase Orders",
+        "name": "Haworth_Purchase_Orders_Haworth_4CA8E4B2__dll",
+        "recordModifiedFieldName": "CreatedAt",
+        "status": "ACTIVE"
+      },
+      "dataSource": "Haworth_SAP_c16cd7a1_0555_4208_9655_8f3c757332d9",
+      "dataStreamType": "INGESTAPI",
+      "isEnabled": true,
+      "label": "Haworth_Purchase_Orders-HaworthPurchaseOrder",
+      "lastAddedRecords": 0,
+      "lastProcessedRecords": 0,
+      "lastRefreshDate": "2026-04-02T05:59:32.000Z",
+      "lastRunStatus": "SUCCESS",
+      "mappings": [],
+      "name": "Haworth_Purchase_Orders_HaworthPurchaseOrder_4CA8E4B2",
+      "problemRecordDataLakeObjectName": "PR_Haworth_Purchase_Orders_HaworthPurcha__dll",
+      "recordId": "1dsKh000000L0DnIAK",
+      "refreshConfig": {
+        "frequency": {
+          "hours": [],
+          "refreshDayOfMonth": []
+        },
+        "hasHeaders": false,
+        "isAccelerationEnabled": false,
+        "refreshMode": "UPSERT",
+        "shouldFetchImmediately": false,
+        "shouldTreatMissingFilesAsFailures": false
+      },
+      "sourceFields": [
+        {
+          "datatype": "Text",
+          "name": "AccountId"
+        },
+        {
+          "datatype": "Number",
+          "name": "TotalAmount"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "CreatedAt"
+        },
+        {
+          "datatype": "Text",
+          "name": "Currency"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "DeliveryDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "InstallLocationAddress"
+        },
+        {
+          "datatype": "Text",
+          "name": "InstallLocationCity"
+        },
+        {
+          "datatype": "Text",
+          "name": "InstallLocationPostalCode"
+        },
+        {
+          "datatype": "Text",
+          "name": "InstallLocationState"
+        },
+        {
+          "datatype": "DateTime",
+          "name": "OrderDate"
+        },
+        {
+          "datatype": "Text",
+          "name": "OrderId"
+        },
+        {
+          "datatype": "Text",
+          "name": "ProductCategory"
+        },
+        {
+          "datatype": "Text",
+          "name": "ProductLine"
+        },
+        {
+          "datatype": "Number",
+          "name": "Quantity"
+        },
+        {
+          "datatype": "Text",
+          "name": "Status"
+        },
+        {
+          "datatype": "Text",
+          "name": "ContactId"
+        }
+      ],
+      "status": "ACTIVE",
+      "totalRecords": 25000
+    }
+  ],
+  "totalSize": 9
+}

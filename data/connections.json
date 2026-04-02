@@ -1,0 +1,38 @@
+{
+  "connections": [
+    {
+      "connectorType": "IngestApi",
+      "id": "1WMKh000000PBGAOA4",
+      "label": "Haworth Ecommerce",
+      "name": "Haworth_Ecommerce_edb928c6_4da7_4272_9afc_ab5b7789ce74",
+      "status": "CONNECTED",
+      "tenantSpecificEndpoint": "gzrwmnbqg44d8nt0mjswkyrwme.c360a.salesforce.com"
+    },
+    {
+      "connectorType": "IngestApi",
+      "id": "1WMKh000000PBG5OAO",
+      "label": "Haworth SAP",
+      "name": "Haworth_SAP_c16cd7a1_0555_4208_9655_8f3c757332d9",
+      "status": "CONNECTED",
+      "tenantSpecificEndpoint": "gzrwmnbqg44d8nt0mjswkyrwme.c360a.salesforce.com"
+    },
+    {
+      "connectorType": "IngestApi",
+      "id": "1WMKh000000PBG0OAO",
+      "label": "Haworth HubSpot",
+      "name": "Haworth_HubSpot_d6889fd9_b76d_4c22_bcdc_68d248599259",
+      "status": "CONNECTED",
+      "tenantSpecificEndpoint": "gzrwmnbqg44d8nt0mjswkyrwme.c360a.salesforce.com"
+    },
+    {
+      "connectorType": "IngestApi",
+      "id": "1WMKh000000PBFvOAO",
+      "label": "Haworth Dynamics 365",
+      "name": "Haworth_Dynamics_365_ab345ea8_0603_4f7b_8f19_fa8da7f9dc02",
+      "status": "CONNECTED",
+      "tenantSpecificEndpoint": "gzrwmnbqg44d8nt0mjswkyrwme.c360a.salesforce.com"
+    }
+  ],
+  "currentPageUrl": "/services/data/v65.0/ssot/connections?connectorType=IngestApi&limit=50&offset=0",
+  "totalSize": 4
+}

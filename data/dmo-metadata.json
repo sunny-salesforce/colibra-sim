@@ -1,0 +1,571 @@
+{
+  "ssot__Individual__dlm": {
+    "count": 10000,
+    "fields": {
+      "ssot__CreatedDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 0
+      },
+      "ssot__LastName__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "ssot__TitleName__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "ssot__FirstName__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "ssot__DataSourceObjectId__c": {
+        "type": "VARCHAR",
+        "order": 4
+      },
+      "ssot__Id__c": {
+        "type": "VARCHAR",
+        "order": 5
+      },
+      "ssot__DataSourceId__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "KQ_Id__c": {
+        "type": "VARCHAR",
+        "order": 7
+      }
+    }
+  },
+  "ssot__Account__dlm": {
+    "count": 2001,
+    "fields": {
+      "ssot__EmployeeCount__c": {
+        "type": "DECIMAL",
+        "order": 0
+      },
+      "KQ_ParentAccountId__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "ssot__PrimaryIndustry__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "ssot__ParentAccountId__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "ssot__AnnualRevenueAmount__c": {
+        "type": "DECIMAL",
+        "order": 4
+      },
+      "ssot__DataSourceObjectId__c": {
+        "type": "VARCHAR",
+        "order": 5
+      },
+      "ssot__Id__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "ssot__DataSourceId__c": {
+        "type": "VARCHAR",
+        "order": 7
+      },
+      "KQ_Id__c": {
+        "type": "VARCHAR",
+        "order": 8
+      },
+      "ssot__CreatedDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 9
+      },
+      "ssot__AssignTerritoryFlag__c": {
+        "type": "VARCHAR",
+        "order": 10
+      },
+      "ssot__Name__c": {
+        "type": "VARCHAR",
+        "order": 11
+      },
+      "ssot__AccountType__c": {
+        "type": "VARCHAR",
+        "order": 12
+      }
+    }
+  },
+  "ssot__ContactPointEmail__dlm": {
+    "count": 10000,
+    "fields": {
+      "ssot__CreatedDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 0
+      },
+      "ssot__PartyId__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "KQ_PartyId__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "ssot__EmailAddress__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "ssot__DataSourceObjectId__c": {
+        "type": "VARCHAR",
+        "order": 4
+      },
+      "ssot__Id__c": {
+        "type": "VARCHAR",
+        "order": 5
+      },
+      "ssot__DataSourceId__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "KQ_Id__c": {
+        "type": "VARCHAR",
+        "order": 7
+      }
+    }
+  },
+  "ssot__ContactPointPhone__dlm": {
+    "count": 10000,
+    "fields": {
+      "ssot__CreatedDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 0
+      },
+      "ssot__PartyId__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "KQ_PartyId__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "ssot__TelephoneNumber__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "ssot__FormattedE164PhoneNumber__c": {
+        "type": "VARCHAR",
+        "order": 4
+      },
+      "ssot__DataSourceObjectId__c": {
+        "type": "VARCHAR",
+        "order": 5
+      },
+      "ssot__Id__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "ssot__DataSourceId__c": {
+        "type": "VARCHAR",
+        "order": 7
+      },
+      "KQ_Id__c": {
+        "type": "VARCHAR",
+        "order": 8
+      }
+    }
+  },
+  "ssot__ContactPointAddress__dlm": {
+    "count": 7000,
+    "fields": {
+      "ssot__CityName__c": {
+        "type": "VARCHAR",
+        "order": 0
+      },
+      "ssot__CreatedDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 1
+      },
+      "ssot__PartyId__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "KQ_PartyId__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "ssot__CountryName__c": {
+        "type": "VARCHAR",
+        "order": 4
+      },
+      "ssot__DataSourceObjectId__c": {
+        "type": "VARCHAR",
+        "order": 5
+      },
+      "ssot__Id__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "ssot__StateProvinceName__c": {
+        "type": "VARCHAR",
+        "order": 7
+      },
+      "ssot__AddressLine1__c": {
+        "type": "VARCHAR",
+        "order": 8
+      },
+      "ssot__DataSourceId__c": {
+        "type": "VARCHAR",
+        "order": 9
+      },
+      "KQ_Id__c": {
+        "type": "VARCHAR",
+        "order": 10
+      },
+      "ssot__PostalCodeText__c": {
+        "type": "VARCHAR",
+        "order": 11
+      }
+    }
+  },
+  "HaworthPurchaseOrder__dlm": {
+    "count": 25000,
+    "fields": {
+      "AccountId__c": {
+        "type": "VARCHAR",
+        "order": 0
+      },
+      "CreatedAt__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 1
+      },
+      "InstallLocationAddress__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "Quantity__c": {
+        "type": "DECIMAL",
+        "order": 3
+      },
+      "OrderId__c": {
+        "type": "VARCHAR",
+        "order": 4
+      },
+      "TotalAmount__c": {
+        "type": "DECIMAL",
+        "order": 5
+      },
+      "ContactId__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "Currency__c": {
+        "type": "VARCHAR",
+        "order": 7
+      },
+      "KQ_OrderId__c": {
+        "type": "VARCHAR",
+        "order": 8
+      },
+      "InstallLocationCity__c": {
+        "type": "VARCHAR",
+        "order": 9
+      },
+      "DataSource__c": {
+        "type": "VARCHAR",
+        "order": 10
+      },
+      "DeliveryDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 11
+      },
+      "OrderDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 12
+      },
+      "ProductLine__c": {
+        "type": "VARCHAR",
+        "order": 13
+      },
+      "InstallLocationPostalCode__c": {
+        "type": "VARCHAR",
+        "order": 14
+      },
+      "DataSourceObject__c": {
+        "type": "VARCHAR",
+        "order": 15
+      },
+      "InstallLocationState__c": {
+        "type": "VARCHAR",
+        "order": 16
+      },
+      "ProductCategory__c": {
+        "type": "VARCHAR",
+        "order": 17
+      },
+      "Status__c": {
+        "type": "VARCHAR",
+        "order": 18
+      }
+    }
+  },
+  "HaworthEngagement__dlm": {
+    "count": 25000,
+    "fields": {
+      "ResponseType__c": {
+        "type": "VARCHAR",
+        "order": 0
+      },
+      "CreatedAt__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 1
+      },
+      "EngagementDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 2
+      },
+      "EngagementId__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "CampaignName__c": {
+        "type": "VARCHAR",
+        "order": 4
+      },
+      "KQ_EngagementId__c": {
+        "type": "VARCHAR",
+        "order": 5
+      },
+      "ContactId__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "ContentTopic__c": {
+        "type": "VARCHAR",
+        "order": 7
+      },
+      "EngagementType__c": {
+        "type": "VARCHAR",
+        "order": 8
+      },
+      "DataSource__c": {
+        "type": "VARCHAR",
+        "order": 9
+      },
+      "DataSourceObject__c": {
+        "type": "VARCHAR",
+        "order": 10
+      },
+      "InfluencerId__c": {
+        "type": "VARCHAR",
+        "order": 11
+      },
+      "TradeShow__c": {
+        "type": "VARCHAR",
+        "order": 12
+      },
+      "Channel__c": {
+        "type": "VARCHAR",
+        "order": 13
+      }
+    }
+  },
+  "HaworthD2COrder__dlm": {
+    "count": 10000,
+    "fields": {
+      "CreatedAt__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 0
+      },
+      "ProductName__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "ShippingMethod__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "Quantity__c": {
+        "type": "DECIMAL",
+        "order": 3
+      },
+      "OrderId__c": {
+        "type": "VARCHAR",
+        "order": 4
+      },
+      "TotalAmount__c": {
+        "type": "DECIMAL",
+        "order": 5
+      },
+      "Currency__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "KQ_OrderId__c": {
+        "type": "VARCHAR",
+        "order": 7
+      },
+      "CustomerId__c": {
+        "type": "VARCHAR",
+        "order": 8
+      },
+      "DataSource__c": {
+        "type": "VARCHAR",
+        "order": 9
+      },
+      "OrderDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 10
+      },
+      "DataSourceObject__c": {
+        "type": "VARCHAR",
+        "order": 11
+      },
+      "ProductCategory__c": {
+        "type": "VARCHAR",
+        "order": 12
+      },
+      "Status__c": {
+        "type": "VARCHAR",
+        "order": 13
+      }
+    }
+  },
+  "UnifiedssotAccountHb2b__dlm": {
+    "count": 1325,
+    "fields": {
+      "ssot__EmployeeCount__c": {
+        "type": "DECIMAL",
+        "order": 0
+      },
+      "ssot__CreatedDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 1
+      },
+      "ssot__PrimaryIndustry__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "ssot__ParentAccountId__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "ssot__AnnualRevenueAmount__c": {
+        "type": "DECIMAL",
+        "order": 4
+      },
+      "ssot__AssignTerritoryFlag__c": {
+        "type": "VARCHAR",
+        "order": 5
+      },
+      "ssot__Name__c": {
+        "type": "VARCHAR",
+        "order": 6
+      },
+      "ssot__AccountType__c": {
+        "type": "VARCHAR",
+        "order": 7
+      },
+      "ssot__Id__c": {
+        "type": "VARCHAR",
+        "order": 8
+      }
+    }
+  },
+  "UnifiedssotIndividualHwth__dlm": {
+    "count": 9493,
+    "fields": {
+      "ssot__CreatedDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 0
+      },
+      "ssot__LastName__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "ssot__TitleName__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "ssot__FirstName__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "ssot__Id__c": {
+        "type": "VARCHAR",
+        "order": 4
+      }
+    }
+  },
+  "UnifiedssotIndividualHd2c__dlm": {
+    "count": 9493,
+    "fields": {
+      "ssot__CreatedDate__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 0
+      },
+      "ssot__LastName__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "ssot__TitleName__c": {
+        "type": "VARCHAR",
+        "order": 2
+      },
+      "ssot__FirstName__c": {
+        "type": "VARCHAR",
+        "order": 3
+      },
+      "ssot__Id__c": {
+        "type": "VARCHAR",
+        "order": 4
+      }
+    }
+  },
+  "b2b_account_revenue__cio": {
+    "count": 2001,
+    "fields": {
+      "account_id__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "total_orders__c": {
+        "type": "DECIMAL",
+        "order": 3
+      },
+      "total_revenue__c": {
+        "type": "DECIMAL",
+        "order": 4
+      },
+      "avg_order_value__c": {
+        "type": "DECIMAL",
+        "order": 0
+      },
+      "last_order_date__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 2
+      }
+    }
+  },
+  "d2c_customer_ltv__cio": {
+    "count": 10000,
+    "fields": {
+      "individual_id__c": {
+        "type": "VARCHAR",
+        "order": 1
+      },
+      "total_orders__c": {
+        "type": "DECIMAL",
+        "order": 3
+      },
+      "avg_order_value__c": {
+        "type": "DECIMAL",
+        "order": 0
+      },
+      "total_spend__c": {
+        "type": "DECIMAL",
+        "order": 4
+      },
+      "last_order_date__c": {
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "order": 2
+      }
+    }
+  }
+}

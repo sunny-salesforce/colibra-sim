@@ -1,0 +1,324 @@
+{
+  "batchSize": 20,
+  "offset": 0,
+  "orderByExpression": "[Name asc]",
+  "segments": [
+    {
+      "apiName": "Active_D2C_Customers",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T17:22:03.000Z",
+      "description": "D2C retail customers who have active engagement with Haworth direct-to-consumer channels. Used for personalized marketing, product recommendations, and retention campaigns targeting individual buyers.",
+      "displayName": "Active D2C Customers",
+      "includeCriteria": "{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotIndividualHd2c__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__LastName__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;has value&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T17:28:13.000Z",
+      "lookbackPeriod": "P2Y",
+      "marketSegmentDefinitionId": "3HXKh000000GmbqOAC",
+      "marketSegmentId": "1sgKh000000GmnzIAC",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotIndividualHd2c__dlm",
+      "segmentOnId": "0gjKh000000TlDSIA0",
+      "segmentStatus": "ERROR",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "D2C_High_Spenders",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T17:26:21.000Z",
+      "description": "D2C retail customers identified as high-value spenders based on their profile attributes. Targets individuals with title indicators suggesting premium purchasing behavior for VIP treatment, exclusive offers, and early access programs.",
+      "displayName": "D2C High Spenders",
+      "includeCriteria": "{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotIndividualHd2c__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__TitleName__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;has value&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T17:33:10.000Z",
+      "lookbackPeriod": "P2Y",
+      "marketSegmentDefinitionId": "3HXKh000000GmbvOAC",
+      "marketSegmentId": "1sgKh000000Gmo4IAC",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotIndividualHd2c__dlm",
+      "segmentOnId": "0gjKh000000TlDSIA0",
+      "segmentStatus": "ERROR",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "D2C_Purchase_Recency_Tiers",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T17:38:12.000Z",
+      "description": "Waterfall segment tiering D2C retail customers by purchase recency and engagement. Combines first name and last name attributes to identify active vs lapsed individuals for targeted re-engagement campaigns and loyalty initiatives.",
+      "displayName": "D2C Purchase Recency Tiers",
+      "includeCriteria": "{&quot;type&quot;:&quot;LogicalComparison&quot;,&quot;operator&quot;:&quot;and&quot;,&quot;filters&quot;:[{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotIndividualHd2c__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__FirstName__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;has value&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;},{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotIndividualHd2c__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__LastName__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;has value&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;}]}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T17:44:48.000Z",
+      "lookbackPeriod": "P2Y",
+      "marketSegmentDefinitionId": "3HXKh000000Gmc5OAC",
+      "marketSegmentId": "1sgKh000000GmoEIAS",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotIndividualHd2c__dlm",
+      "segmentOnId": "0gjKh000000TlDSIA0",
+      "segmentStatus": "ERROR",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Dealer_Network_Accounts",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T15:36:06.000Z",
+      "dataSpace": "default",
+      "description": "B2B accounts classified as dealers in the Haworth distribution network. Used for dealer engagement and value-add data sharing initiatives.",
+      "displayName": "Dealer Network Accounts",
+      "includeCriteria": "{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__AccountType__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;equal&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;values&quot;:[&quot;Dealer&quot;]}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T15:37:52.000Z",
+      "lastSegmentMemberCount": 412,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000GmbWOAS",
+      "marketSegmentId": "1sgKh000000GmnfIAC",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Education_Vertical",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T15:30:15.000Z",
+      "dataSpace": "default",
+      "description": "B2B accounts in the education vertical. Targeted for institutional furniture solutions and campus renewal cycles.",
+      "displayName": "Education Vertical",
+      "includeCriteria": "{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__PrimaryIndustry__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;equal&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;values&quot;:[&quot;Education&quot;]}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T15:34:34.000Z",
+      "lastSegmentMemberCount": 266,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000GmbROAS",
+      "marketSegmentId": "1sgKh000000GmnaIAC",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Growth_Trajectory_Accounts",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T15:27:06.000Z",
+      "dataSpace": "default",
+      "description": "B2B accounts showing growth trajectory based on employee count and revenue. Used for expansion opportunity targeting.",
+      "displayName": "Growth Trajectory Accounts",
+      "includeCriteria": "{&quot;type&quot;:&quot;NumberComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__EmployeeCount__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;greater than or equal&quot;,&quot;businessTypeArgument&quot;:null,&quot;subjectFieldDataType&quot;:&quot;NUMBER&quot;,&quot;subjectFieldBusinessType&quot;:&quot;NUMBER&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;value&quot;:50}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T15:28:42.000Z",
+      "lastSegmentMemberCount": 1318,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000GmbMOAS",
+      "marketSegmentId": "1sgKh000000GmnVIAS",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Healthcare_Accounts",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T06:09:26.000Z",
+      "dataSpace": "default",
+      "description": "Individuals associated with Healthcare industry accounts - Haworth&#39;s largest vertical segment for furniture renewal campaigns",
+      "displayName": "Healthcare Accounts",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T06:10:14.000Z",
+      "lastSegmentMemberCount": 9493,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000Gmb7OAC",
+      "marketSegmentId": "1sgKh000000GmnGIAS",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotIndividualHwth__dlm",
+      "segmentOnId": "0gjKh000000TkvsIAC",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Healthcare_Renewal_Priority_Tiers",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T17:31:25.000Z",
+      "description": "Waterfall segment prioritizing healthcare accounts into renewal tiers: Urgent (high-value healthcare), Upcoming (all healthcare), and Planning (growth trajectory healthcare). Supports the healthcare renewal campaign with tiered outreach priority.",
+      "displayName": "Healthcare Renewal Priority Tiers",
+      "includeCriteria": "{&quot;type&quot;:&quot;LogicalComparison&quot;,&quot;operator&quot;:&quot;and&quot;,&quot;filters&quot;:[{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__PrimaryIndustry__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;equal&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;values&quot;:[&quot;Healthcare&quot;]},{&quot;type&quot;:&quot;NumberComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__AnnualRevenueAmount__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;greater than or equal&quot;,&quot;businessTypeArgument&quot;:null,&quot;subjectFieldDataType&quot;:&quot;NUMBER&quot;,&quot;subjectFieldBusinessType&quot;:&quot;NUMBER&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;value&quot;:5000000}]}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T17:39:59.000Z",
+      "lookbackPeriod": "P2Y",
+      "marketSegmentDefinitionId": "3HXKh000000Gmc0OAC",
+      "marketSegmentId": "1sgKh000000Gmo9IAC",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ERROR",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Healthcare_Renewal_Targets",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T15:18:06.000Z",
+      "dataSpace": "default",
+      "description": "B2B healthcare vertical accounts approaching furniture lifecycle renewal (5-7 year cycle). High-priority campaign targeting segment for proactive renewal outreach.",
+      "displayName": "Healthcare Renewal Targets",
+      "includeCriteria": "{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__PrimaryIndustry__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;equal&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;values&quot;:[&quot;Healthcare&quot;]}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T15:20:31.000Z",
+      "lastSegmentMemberCount": 374,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000GmbCOAS",
+      "marketSegmentId": "1sgKh000000GmnLIAS",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "High_Value_Accounts",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T15:22:03.000Z",
+      "dataSpace": "default",
+      "description": "B2B accounts with high annual revenue. Used for premium account management and upsell targeting.",
+      "displayName": "High-Value Accounts",
+      "includeCriteria": "{&quot;type&quot;:&quot;NumberComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__AnnualRevenueAmount__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;greater than or equal&quot;,&quot;businessTypeArgument&quot;:null,&quot;subjectFieldDataType&quot;:&quot;NUMBER&quot;,&quot;subjectFieldBusinessType&quot;:&quot;NUMBER&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;value&quot;:5000000}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T15:25:25.000Z",
+      "lastSegmentMemberCount": 1196,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000GmbHOAS",
+      "marketSegmentId": "1sgKh000000GmnQIAS",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Southwest_Region_Accounts",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T15:41:20.000Z",
+      "dataSpace": "default",
+      "description": "B2B accounts assigned to the Southwest sales territory. Supports regional sales activation and territory-based campaign targeting for Haworth field sales teams.",
+      "displayName": "Southwest Region Accounts",
+      "includeCriteria": "{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__AssignTerritoryFlag__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;equal&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;values&quot;:[&quot;Y&quot;]}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T17:12:47.000Z",
+      "lastSegmentMemberCount": 0,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000GmbbOAC",
+      "marketSegmentId": "1sgKh000000GmnkIAC",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Trade_Show_Engaged_Accounts",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T17:14:33.000Z",
+      "dataSpace": "default",
+      "description": "B2B accounts with high contact engagement scores from trade shows and events. Uses the b2b_contact_engagement Calculated Insight to identify accounts with active buyer engagement for follow-up campaigns.",
+      "displayName": "Trade Show Engaged Accounts",
+      "includeCriteria": "{&quot;type&quot;:&quot;TextComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__AccountType__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;equal&quot;,&quot;subjectFieldDataType&quot;:&quot;TEXT&quot;,&quot;subjectFieldBusinessType&quot;:&quot;TEXT&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;values&quot;:[&quot;Customer&quot;]}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T17:16:06.000Z",
+      "lastSegmentMemberCount": 0,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000GmbgOAC",
+      "marketSegmentId": "1sgKh000000GmnpIAC",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    },
+    {
+      "apiName": "Win_Back_Target_Accounts",
+      "createdBy": {
+        "id": "005Kh0000050AtaIAE"
+      },
+      "createdDate": "2026-04-02T17:17:38.000Z",
+      "dataSpace": "default",
+      "description": "B2B accounts with lower annual revenue that may represent lapsed or inactive relationships. Targets accounts with revenue below $1M for win-back and re-engagement campaigns to restore purchasing activity.",
+      "displayName": "Win-Back Target Accounts",
+      "includeCriteria": "{&quot;type&quot;:&quot;NumberComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedssotAccountHb2b__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__AnnualRevenueAmount__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;less than&quot;,&quot;businessTypeArgument&quot;:null,&quot;subjectFieldDataType&quot;:&quot;NUMBER&quot;,&quot;subjectFieldBusinessType&quot;:&quot;NUMBER&quot;,&quot;subjectFieldSourceType&quot;:&quot;DIRECT&quot;,&quot;value&quot;:1000000}",
+      "lastModifiedBy": {
+        "id": "005Kh000005MKaGIAW"
+      },
+      "lastModifiedDate": "2026-04-02T17:20:47.000Z",
+      "lastSegmentMemberCount": 18,
+      "lookbackPeriod": "P90D",
+      "marketSegmentDefinitionId": "3HXKh000000GmblOAC",
+      "marketSegmentId": "1sgKh000000GmnuIAC",
+      "parameters": [],
+      "publishInterval": "NO_REFRESH",
+      "segmentOnApiName": "UnifiedssotAccountHb2b__dlm",
+      "segmentOnId": "0gjKh000000TlDIIA0",
+      "segmentStatus": "ACTIVE",
+      "segmentType": "UI"
+    }
+  ],
+  "totalSize": 13
+}
